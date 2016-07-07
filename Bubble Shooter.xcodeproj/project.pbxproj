@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C4067B8B1D2F01EE00240C87 /* Scores.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4067B891D2F01EE00240C87 /* Scores.swift */; };
 		C4195E8E1C984AD000BB344E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4195E8D1C984AD000BB344E /* AppDelegate.swift */; };
 		C4195E921C984AD000BB344E /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4195E911C984AD000BB344E /* GameScene.swift */; };
 		C4195E941C984AD000BB344E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4195E931C984AD000BB344E /* GameViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C4067B891D2F01EE00240C87 /* Scores.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scores.swift; sourceTree = "<group>"; };
 		C4195E8A1C984ACF00BB344E /* Bubble Shooter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bubble Shooter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4195E8D1C984AD000BB344E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4195E911C984AD000BB344E /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -63,15 +65,16 @@
 			isa = PBXGroup;
 			children = (
 				C4195E8D1C984AD000BB344E /* AppDelegate.swift */,
+				C4195E981C984AD000BB344E /* Assets.xcassets */,
 				C4195E911C984AD000BB344E /* GameScene.swift */,
 				C4195E931C984AD000BB344E /* GameViewController.swift */,
-				C4195E951C984AD000BB344E /* Main.storyboard */,
-				C4195E981C984AD000BB344E /* Assets.xcassets */,
-				C4195E9A1C984AD000BB344E /* LaunchScreen.storyboard */,
 				C4195E9D1C984AD000BB344E /* Info.plist */,
+				C4195E9A1C984AD000BB344E /* LaunchScreen.storyboard */,
 				C4C2F5441CA33F1300644158 /* Level.swift */,
-				C4E78B2A1D2DB2E1009FF862 /* Scores.xcdatamodeld */,
 				C4535B311CF441A600405CB3 /* LevelSelectionController.swift */,
+				C4195E951C984AD000BB344E /* Main.storyboard */,
+				C4067B891D2F01EE00240C87 /* Scores.swift */,
+				C4E78B2A1D2DB2E1009FF862 /* Scores.xcdatamodeld */,
 			);
 			path = "Bubble Shooter";
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 				C4195E921C984AD000BB344E /* GameScene.swift in Sources */,
 				C4195E941C984AD000BB344E /* GameViewController.swift in Sources */,
 				C4E78B2C1D2DB2E1009FF862 /* Scores.xcdatamodeld in Sources */,
+				C4067B8B1D2F01EE00240C87 /* Scores.swift in Sources */,
 				C4195E8E1C984AD000BB344E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

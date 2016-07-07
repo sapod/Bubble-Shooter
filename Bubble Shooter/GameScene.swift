@@ -11,6 +11,7 @@ import SpriteKit
 class GameScene: SKScene {
     var level : Level!
     var score = 0
+    var scoreLabel : UILabel!
     let node = SKNode()
     let arrow = SKSpriteNode(imageNamed: "arrow")
     let firebg = SKSpriteNode(imageNamed: "fireBG")
@@ -52,7 +53,9 @@ class GameScene: SKScene {
         
         viewController.title = "Level \(levelNum)"
         
-        mtimer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: Selector("updatePosition"), userInfo: nil, repeats: true)
+        //mtimer = NSTimer.scheduledTimerWithTimeInterval(0.05, target: self, selector: Selector("updatePosition"), userInfo: nil, repeats: true)
+        
+        startThread()
     }
     
     // Called when a touch begins
@@ -84,6 +87,8 @@ class GameScene: SKScene {
                 nextBall.texture =  SKTexture(imageNamed: level.generateBubble())
                 dir = CGVector(dx: CGFloat(dirX)*speedX, dy: speedY).normalized
                 level.activeBubble = fired
+                
+                startThread()
             }
         } else { // Win or Lose
             if didWin {
@@ -111,40 +116,30 @@ class GameScene: SKScene {
         }
     }
     
+    func startThread() {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            self.updatePosition()
+        });
+    }
+    
     func updatePosition() {
-        if startFire {
-            fired.position.x += dir.dx*2
-            fired.position.y += dir.dy*2
-            level.checkCollision(dir)
-            
-            if fired.position.x > view!.frame.width-level.bubbleSize/2+3 {
-                fired.physicsBody?.velocity.dx = -1*fabs((fired.physicsBody?.velocity.dx)!)
+        while startFire {
+            if fired.position.x >= view!.frame.width-(level.bubbleSize/2+level.xGap/2) {
                 dir.dx = -1*fabs(dir.dx)
             }
-            else if fired.position.x < level.bubbleSize/2+3 {
-                fired.physicsBody?.velocity.dx = fabs((fired.physicsBody?.velocity.dx)!)
+            else if fired.position.x <= level.bubbleSize/2+level.xGap/2 {
                 dir.dx = fabs(dir.dx)
             }
+            
+            fired.position.x += dir.dx*0.2
+            fired.position.y += dir.dy*0.2
+            level.checkCollision(dir)
         }
     }
     
    // Called before each frame is rendered
     override func update(currentTime: CFTimeInterval) {
-      /*  if startFire {
-            
-            fired.position.x += dir.dx*50
-            fired.position.y += dir.dy*50
-            level.checkCollision(dir)
-            
-            if fired.position.x > view!.frame.width-level.bubbleSize/2+3 {
-                fired.physicsBody?.velocity.dx = -1*fabs((fired.physicsBody?.velocity.dx)!)
-                dir.dx = -1*fabs(dir.dx)
-            }
-            else if fired.position.x < level.bubbleSize/2+3 {
-                fired.physicsBody?.velocity.dx = fabs((fired.physicsBody?.velocity.dx)!)
-                dir.dx = fabs(dir.dx)
-            }
-        }*/
+      
     }
     
     internal func endShoot() {
@@ -192,7 +187,7 @@ class GameScene: SKScene {
         coinView.image = UIImage.animatedImageNamed("coin", duration: 1.5)
         view!.addSubview(coinView)
         
-        let scoreLabel = UILabel(frame: CGRect(x: 45, y: (view?.frame.height)!-48, width: 150, height: 50))
+        scoreLabel = UILabel(frame: CGRect(x: 45, y: (view?.frame.height)!-48, width: 150, height: 50))
         scoreLabel.text = "Score: \(score)"
         scoreLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         scoreLabel.font = scoreLabel.font.fontWithSize(24)
@@ -201,6 +196,14 @@ class GameScene: SKScene {
     
     func setVictory(win: Bool) {
         didWin = win
+    }
+    
+    func updateScore(s: Int) {
+        score += s
+        dispatch_async(dispatch_get_main_queue(), {
+            self.scoreLabel.text = "Score: \(self.score)"
+        });
+        
     }
     
     func resetGame() {

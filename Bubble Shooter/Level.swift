@@ -17,6 +17,7 @@ class Level : NSObject, SKPhysicsContactDelegate {
     var downDelta : Int!
     let bubbleSize = CGFloat(33.6)
     let minBubbles = 3
+    let pointsPerBubble = 5
     
     var startingIndex = 0 // First active row
     var activeBubble : SKSpriteNode?
@@ -37,7 +38,8 @@ class Level : NSObject, SKPhysicsContactDelegate {
     let losePanel : SKSpriteNode
     
     let pillar = SKSpriteNode(imageNamed: "pillar")
-    
+    let leftWall = SKSpriteNode(imageNamed: "wood")
+    let rightWall = SKSpriteNode(imageNamed: "wood")
     
     init(num: Int, scene: GameScene) {
         self.levelNumber = num
@@ -64,11 +66,24 @@ class Level : NSObject, SKPhysicsContactDelegate {
         losePanel.size = size
         losePanel.position = pos
         
+        // For time lowering
         pillar.position = CGPoint(x: 0, y: height)
         pillar.anchorPoint = CGPoint(x: 0, y: 0)
         let h = CGFloat(pillar.size.height / pillar.size.width) * width
         pillar.size = CGSize(width: width,height: h)
         scene.addChild(pillar)
+        
+        // Left wall
+        leftWall.position = CGPoint(x: width-xGap/2, y: 0)
+        leftWall.anchorPoint = CGPoint(x: 0, y: 0)
+        leftWall.size = CGSize(width: xGap/2, height: height)
+        scene.addChild(leftWall)
+        
+        // Right wall
+        rightWall.position = CGPoint(x: 0, y: 0)
+        rightWall.anchorPoint = CGPoint(x: 0, y: 0)
+        rightWall.size = CGSize(width: xGap/2, height: height)
+        scene.addChild(rightWall)
         
         super.init()
         
@@ -216,7 +231,7 @@ class Level : NSObject, SKPhysicsContactDelegate {
             } else if index != nil {
                 for var i=0;i<matrix.count;i++ {
                     for var j=0;j<matrix[i].count;j++ {
-                        if matrix[i][j] != nil && CGPoint.distance(pos, p2: matrix[i][j]!.position) <= bubbleSize+4 {
+                        if matrix[i][j] != nil && CGPoint.distance(pos, p2: matrix[i][j]!.position) <= bubbleSize+1 {
                             collided(index!, dir: dir)
                             return
                         }
@@ -267,6 +282,7 @@ class Level : NSObject, SKPhysicsContactDelegate {
         if group.count >= minBubbles {
             checkFalls()
             numBubbles -= group.count
+            scene.updateScore(group.count * pointsPerBubble)
             print("current number of bubbles: \(numBubbles)")
             
             for var i=0;i<group.count;i++ {
