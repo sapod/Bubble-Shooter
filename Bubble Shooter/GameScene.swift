@@ -7,11 +7,15 @@
 //
 
 import SpriteKit
+import AVFoundation
 
 class GameScene: SKScene {
+    static let numOfLevels = 4
     var level : Level!
+    var levelNum : Int!
     var score = 0
     var scoreLabel : UILabel!
+    var skground : SKSpriteNode!
     let node = SKNode()
     let arrow = SKSpriteNode(imageNamed: "arrow")
     let firebg = SKSpriteNode(imageNamed: "fireBG")
@@ -23,23 +27,29 @@ class GameScene: SKScene {
     var speedX : CGFloat!
     var speedY : CGFloat!
     var dir : CGVector!
-    var levelNum : Int!
-    let numOfLevels = 4
+    
     var navHeight : CGFloat!
     var viewController : GameViewController!
     
     var gameActive = true
     var didWin = true
     
-    var mtimer : NSTimer!
+    // Audio
+    var audioPlayer:AVAudioPlayer!
+    let hit = NSBundle.mainBundle().pathForResource("hit", ofType: "wav")
+    let shoot = NSBundle.mainBundle().pathForResource("shoot", ofType: "wav")
+    let falling = NSBundle.mainBundle().pathForResource("falling", ofType: "wav")
+    let win = NSBundle.mainBundle().pathForResource("win", ofType: "wav")
+    let lose = NSBundle.mainBundle().pathForResource("lose", ofType: "wav")
     
     // Setup your scene here
     override func didMoveToView(view: SKView) {
-        level = Level(num: levelNum, scene: self)
-        
         backgroundColor = UIColor(red: 159.0/255.0, green: 201.0/255.0, blue: 244.0/255.0, alpha: 1.0)
         addGround()
         addScore()
+        
+        level = Level(num: levelNum, scene: self)
+        viewController.title = "Level \(levelNum)"
         
         setNode()
         node.addChild(arrow)
@@ -49,13 +59,11 @@ class GameScene: SKScene {
         setFireBalls()
         addChild(fireBall)
         addChild(nextBall)
-        addChild(fired)
-        
-        viewController.title = "Level \(levelNum)"
-        
-        //mtimer = NSTimer.scheduledTimerWithTimeInterval(0.05, target: self, selector: Selector("updatePosition"), userInfo: nil, repeats: true)
-        
-        startThread()
+        addChild(fired)     
+    }
+    
+    func cancelLevelThread() {
+        level.endTimer()
     }
     
     // Called when a touch begins
@@ -68,6 +76,15 @@ class GameScene: SKScene {
         
         if gameActive {
             if(location.y > view!.frame.height/10 && !startFire) {
+                let audioFileUrl = NSURL.fileURLWithPath(shoot!)
+                do {
+                    try audioPlayer = AVAudioPlayer(contentsOfURL: audioFileUrl)
+                    audioPlayer.play()
+                }
+                catch {
+                    print("Error playing shoot sound")
+                }
+                
                 let const = SKConstraint.orientToPoint(location, offset: SKRange(constantValue: -90*CGFloat(M_PI)/180))
                 node.constraints = [const]
             
@@ -92,10 +109,11 @@ class GameScene: SKScene {
             }
         } else { // Win or Lose
             if didWin {
-                if level.winPanel.containsPoint(location) { // Clicked
-                    if levelNum < numOfLevels {
+                if level.winPanel.containsPoint(location) { // Nect level
+                    if levelNum < GameScene.numOfLevels {
                         levelNum!++                        
                         level.removePanels()
+                        level.reset()
                         level = Level(num: levelNum, scene: self)
                         resetGame()
                     }
@@ -106,8 +124,9 @@ class GameScene: SKScene {
                     }
                 }
             } else {
-                if level.losePanel.containsPoint(location) { // Clicked
+                if level.losePanel.containsPoint(location) { // Restart game
                     level.removePanels()
+                    level.reset()
                     level = Level(num: levelNum, scene: self)
                     resetGame()
 
@@ -124,15 +143,24 @@ class GameScene: SKScene {
     
     func updatePosition() {
         while startFire {
-            if fired.position.x >= view!.frame.width-(level.bubbleSize/2+level.xGap/2) {
+            let delta = CGFloat(0.3)
+            var point = fired.position
+            
+            if dir.dx < 0 {
+                point.x -= level.bubbleSize/2
+            } else {
+                point.x += level.bubbleSize/2
+            }
+            
+            if level.rightWall.containsPoint(point)  {
                 dir.dx = -1*fabs(dir.dx)
             }
-            else if fired.position.x <= level.bubbleSize/2+level.xGap/2 {
+            else if level.leftWall.containsPoint(point) {
                 dir.dx = fabs(dir.dx)
             }
             
-            fired.position.x += dir.dx*0.2
-            fired.position.y += dir.dy*0.2
+            fired.position.x += dir.dx*delta
+            fired.position.y += dir.dy*delta
             level.checkCollision(dir)
         }
     }
@@ -176,9 +204,9 @@ class GameScene: SKScene {
     }
     
     func addGround() {
-        let skground = SKSpriteNode(imageNamed: "ground")
-        skground.size = CGSize(width: view!.frame.width*2, height: view!.frame.height/10)
-        skground.position = CGPointMake(0, view!.frame.height/20)
+        skground = SKSpriteNode(imageNamed: "ground")
+        skground.size = CGSize(width: view!.frame.width, height: view!.frame.height/10)
+        skground.position = CGPointMake(view!.frame.width/2, view!.frame.height/20)
         addChild(skground)
     }
     
@@ -211,6 +239,8 @@ class GameScene: SKScene {
         gameActive = true
         setFireBalls()
         setNode()
+        score = 0
+        updateScore(0)
     }
 }
 

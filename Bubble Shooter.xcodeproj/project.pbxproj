@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		C4067B8B1D2F01EE00240C87 /* Scores.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4067B891D2F01EE00240C87 /* Scores.swift */; };
+		C4169F291D3037D0001E292F /* hit.wav in Resources */ = {isa = PBXBuildFile; fileRef = C4169F281D3037D0001E292F /* hit.wav */; };
+		C4169F2C1D303C64001E292F /* falling.wav in Resources */ = {isa = PBXBuildFile; fileRef = C4169F2A1D303C64001E292F /* falling.wav */; };
+		C4169F2D1D303C64001E292F /* shoot.wav in Resources */ = {isa = PBXBuildFile; fileRef = C4169F2B1D303C64001E292F /* shoot.wav */; };
+		C4169F301D303ED0001E292F /* lose.wav in Resources */ = {isa = PBXBuildFile; fileRef = C4169F2E1D303ED0001E292F /* lose.wav */; };
+		C4169F311D303ED0001E292F /* win.wav in Resources */ = {isa = PBXBuildFile; fileRef = C4169F2F1D303ED0001E292F /* win.wav */; };
 		C4195E8E1C984AD000BB344E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4195E8D1C984AD000BB344E /* AppDelegate.swift */; };
 		C4195E921C984AD000BB344E /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4195E911C984AD000BB344E /* GameScene.swift */; };
 		C4195E941C984AD000BB344E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4195E931C984AD000BB344E /* GameViewController.swift */; };
@@ -16,11 +21,16 @@
 		C4195E9C1C984AD000BB344E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4195E9A1C984AD000BB344E /* LaunchScreen.storyboard */; };
 		C4535B321CF441A600405CB3 /* LevelSelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4535B311CF441A600405CB3 /* LevelSelectionController.swift */; };
 		C4C2F5451CA33F1300644158 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C2F5441CA33F1300644158 /* Level.swift */; };
-		C4E78B2C1D2DB2E1009FF862 /* Scores.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C4E78B2A1D2DB2E1009FF862 /* Scores.xcdatamodeld */; };
+		C4E78B2C1D2DB2E1009FF862 /* mDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C4E78B2A1D2DB2E1009FF862 /* mDataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C4067B891D2F01EE00240C87 /* Scores.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scores.swift; sourceTree = "<group>"; };
+		C4169F281D3037D0001E292F /* hit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = hit.wav; path = "Audio files/hit.wav"; sourceTree = "<group>"; };
+		C4169F2A1D303C64001E292F /* falling.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = falling.wav; path = "Audio files/falling.wav"; sourceTree = "<group>"; };
+		C4169F2B1D303C64001E292F /* shoot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = shoot.wav; path = "Audio files/shoot.wav"; sourceTree = "<group>"; };
+		C4169F2E1D303ED0001E292F /* lose.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = lose.wav; path = "Audio files/lose.wav"; sourceTree = "<group>"; };
+		C4169F2F1D303ED0001E292F /* win.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = win.wav; path = "Audio files/win.wav"; sourceTree = "<group>"; };
 		C4195E8A1C984ACF00BB344E /* Bubble Shooter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bubble Shooter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4195E8D1C984AD000BB344E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4195E911C984AD000BB344E /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -31,7 +41,7 @@
 		C4195E9D1C984AD000BB344E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4535B311CF441A600405CB3 /* LevelSelectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelSelectionController.swift; sourceTree = "<group>"; };
 		C4C2F5441CA33F1300644158 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
-		C4E78B2B1D2DB2E1009FF862 /* Scores.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Scores.xcdatamodel; sourceTree = "<group>"; };
+		C4E78B2B1D2DB2E1009FF862 /* mDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = mDataModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +55,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C4169F271D303785001E292F /* Audio files */ = {
+			isa = PBXGroup;
+			children = (
+				C4169F2E1D303ED0001E292F /* lose.wav */,
+				C4169F2F1D303ED0001E292F /* win.wav */,
+				C4169F2A1D303C64001E292F /* falling.wav */,
+				C4169F2B1D303C64001E292F /* shoot.wav */,
+				C4169F281D3037D0001E292F /* hit.wav */,
+			);
+			name = "Audio files";
+			path = ..;
+			sourceTree = "<group>";
+		};
 		C4195E811C984ACF00BB344E = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +89,7 @@
 			children = (
 				C4195E8D1C984AD000BB344E /* AppDelegate.swift */,
 				C4195E981C984AD000BB344E /* Assets.xcassets */,
+				C4169F271D303785001E292F /* Audio files */,
 				C4195E911C984AD000BB344E /* GameScene.swift */,
 				C4195E931C984AD000BB344E /* GameViewController.swift */,
 				C4195E9D1C984AD000BB344E /* Info.plist */,
@@ -74,7 +98,7 @@
 				C4535B311CF441A600405CB3 /* LevelSelectionController.swift */,
 				C4195E951C984AD000BB344E /* Main.storyboard */,
 				C4067B891D2F01EE00240C87 /* Scores.swift */,
-				C4E78B2A1D2DB2E1009FF862 /* Scores.xcdatamodeld */,
+				C4E78B2A1D2DB2E1009FF862 /* mDataModel.xcdatamodeld */,
 			);
 			path = "Bubble Shooter";
 			sourceTree = "<group>";
@@ -138,8 +162,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4169F291D3037D0001E292F /* hit.wav in Resources */,
+				C4169F311D303ED0001E292F /* win.wav in Resources */,
 				C4195E9C1C984AD000BB344E /* LaunchScreen.storyboard in Resources */,
+				C4169F2C1D303C64001E292F /* falling.wav in Resources */,
+				C4169F301D303ED0001E292F /* lose.wav in Resources */,
 				C4195E991C984AD000BB344E /* Assets.xcassets in Resources */,
+				C4169F2D1D303C64001E292F /* shoot.wav in Resources */,
 				C4195E971C984AD000BB344E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,7 +184,7 @@
 				C4C2F5451CA33F1300644158 /* Level.swift in Sources */,
 				C4195E921C984AD000BB344E /* GameScene.swift in Sources */,
 				C4195E941C984AD000BB344E /* GameViewController.swift in Sources */,
-				C4E78B2C1D2DB2E1009FF862 /* Scores.xcdatamodeld in Sources */,
+				C4E78B2C1D2DB2E1009FF862 /* mDataModel.xcdatamodeld in Sources */,
 				C4067B8B1D2F01EE00240C87 /* Scores.swift in Sources */,
 				C4195E8E1C984AD000BB344E /* AppDelegate.swift in Sources */,
 			);
@@ -310,13 +339,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		C4E78B2A1D2DB2E1009FF862 /* Scores.xcdatamodeld */ = {
+		C4E78B2A1D2DB2E1009FF862 /* mDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				C4E78B2B1D2DB2E1009FF862 /* Scores.xcdatamodel */,
+				C4E78B2B1D2DB2E1009FF862 /* mDataModel.xcdatamodel */,
 			);
-			currentVersion = C4E78B2B1D2DB2E1009FF862 /* Scores.xcdatamodel */;
-			path = Scores.xcdatamodeld;
+			currentVersion = C4E78B2B1D2DB2E1009FF862 /* mDataModel.xcdatamodel */;
+			path = mDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

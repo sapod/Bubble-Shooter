@@ -31,6 +31,10 @@ class GameViewController: UIViewController {
         // Present the scene
         skView.presentScene(scene)
     }
+    
+    override func viewDidDisappear(animated: Bool) {
+        scene.cancelLevelThread()
+    }
 
     override func shouldAutorotate() -> Bool {
         return true
