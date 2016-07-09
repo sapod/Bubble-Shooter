@@ -19,6 +19,8 @@
 		C4195E971C984AD000BB344E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4195E951C984AD000BB344E /* Main.storyboard */; };
 		C4195E991C984AD000BB344E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4195E981C984AD000BB344E /* Assets.xcassets */; };
 		C4195E9C1C984AD000BB344E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4195E9A1C984AD000BB344E /* LaunchScreen.storyboard */; };
+		C44427AA1D3138FB00A2FE57 /* ScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44427A91D3138FB00A2FE57 /* ScoresViewController.swift */; };
+		C44427AC1D313A1E00A2FE57 /* ScoresTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44427AB1D313A1E00A2FE57 /* ScoresTableViewCell.swift */; };
 		C4535B321CF441A600405CB3 /* LevelSelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4535B311CF441A600405CB3 /* LevelSelectionController.swift */; };
 		C4C2F5451CA33F1300644158 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C2F5441CA33F1300644158 /* Level.swift */; };
 		C4E78B2C1D2DB2E1009FF862 /* mDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C4E78B2A1D2DB2E1009FF862 /* mDataModel.xcdatamodeld */; };
@@ -39,6 +41,8 @@
 		C4195E981C984AD000BB344E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4195E9B1C984AD000BB344E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4195E9D1C984AD000BB344E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C44427A91D3138FB00A2FE57 /* ScoresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoresViewController.swift; sourceTree = "<group>"; };
+		C44427AB1D313A1E00A2FE57 /* ScoresTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoresTableViewCell.swift; sourceTree = "<group>"; };
 		C4535B311CF441A600405CB3 /* LevelSelectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelSelectionController.swift; sourceTree = "<group>"; };
 		C4C2F5441CA33F1300644158 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		C4E78B2B1D2DB2E1009FF862 /* mDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = mDataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -99,6 +103,8 @@
 				C4195E951C984AD000BB344E /* Main.storyboard */,
 				C4067B891D2F01EE00240C87 /* Scores.swift */,
 				C4E78B2A1D2DB2E1009FF862 /* mDataModel.xcdatamodeld */,
+				C44427A91D3138FB00A2FE57 /* ScoresViewController.swift */,
+				C44427AB1D313A1E00A2FE57 /* ScoresTableViewCell.swift */,
 			);
 			path = "Bubble Shooter";
 			sourceTree = "<group>";
@@ -183,6 +189,8 @@
 				C4535B321CF441A600405CB3 /* LevelSelectionController.swift in Sources */,
 				C4C2F5451CA33F1300644158 /* Level.swift in Sources */,
 				C4195E921C984AD000BB344E /* GameScene.swift in Sources */,
+				C44427AC1D313A1E00A2FE57 /* ScoresTableViewCell.swift in Sources */,
+				C44427AA1D3138FB00A2FE57 /* ScoresViewController.swift in Sources */,
 				C4195E941C984AD000BB344E /* GameViewController.swift in Sources */,
 				C4E78B2C1D2DB2E1009FF862 /* mDataModel.xcdatamodeld in Sources */,
 				C4067B8B1D2F01EE00240C87 /* Scores.swift in Sources */,
