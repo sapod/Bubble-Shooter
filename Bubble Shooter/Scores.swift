@@ -36,6 +36,14 @@ class Scores: NSManagedObject {
         return true
     }
     
+    func checkDB() {
+        if load().count < GameScene.numOfLevels {
+            for var i=1;i<=GameScene.numOfLevels;i++ {
+                insert(i, score: 0)
+            }
+        }
+    }
+    
     func insert(level: NSNumber, score: NSNumber) -> Bool {
         let item = NSEntityDescription.insertNewObjectForEntityForName(key, inManagedObjectContext: self.managedObjectContext!) as NSManagedObject
         item.setValue(level, forKey: levelKey)
@@ -52,17 +60,7 @@ class Scores: NSManagedObject {
     }
     
     func update(l: Int, s: Int) {
-        let request = NSFetchRequest(entityName: key)
-        request.returnsObjectsAsFaults = false
-        
-        let results : NSArray
-        do {
-            results = try (self.managedObjectContext?.executeFetchRequest(request))!
-            print("loaded \(results)")
-        }
-        catch {
-            results = NSArray()
-        }
+        let results = load()
         
         for var i=0;i<results.count;i++ {
             if results[i].valueForKey(levelKey)! as! Int == l {
@@ -95,7 +93,6 @@ class Scores: NSManagedObject {
         let results : NSArray
         do {
             results = try (self.managedObjectContext?.executeFetchRequest(request))!
-            print("loaded \(results)")
         }
         catch {
             results = NSArray()
@@ -104,16 +101,15 @@ class Scores: NSManagedObject {
         return results
     }
     
-   /* func reset() {
+    func reset() {
         let results = load()
         for var i=0;i<results.count;i++ {
-            self.managedObjectContext?.deleteObject(results[i] as! NSManagedObject)
+            results[i].setValue(0, forKey: scoreKey)
         }
-        
         do {
             try self.managedObjectContext?.save()
         } catch {
             print("reset failed")
         }
-    }*/
+    }
 }

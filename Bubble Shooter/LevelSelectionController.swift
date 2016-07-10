@@ -10,19 +10,6 @@ import Foundation
 import UIKit
 
 class LevelSelectionController: UIViewController {
-    var scoresDB : Scores!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        scoresDB = Scores.getInstance()
-        
-        if scoresDB.load().count < GameScene.numOfLevels {
-            for var i=1;i<=GameScene.numOfLevels;i++ {
-                scoresDB.insert(i, score: 0)
-            }
-        }
-    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let svc = segue.destinationViewController as! GameViewController

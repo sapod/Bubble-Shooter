@@ -39,6 +39,7 @@ class Level : NSObject, SKPhysicsContactDelegate {
     var xGap : CGFloat!
     
     let winPanel : SKSpriteNode
+    let highScore : SKLabelNode
     let losePanel : SKSpriteNode
     
     let pillar = SKSpriteNode(imageNamed: "pillar")
@@ -79,6 +80,12 @@ class Level : NSObject, SKPhysicsContactDelegate {
         losePanel.size = size
         losePanel.position = pos
         
+        highScore = SKLabelNode(fontNamed: "Ariel")
+        highScore.text = "New high score!"
+        highScore.fontColor = UIColor.redColor()
+        highScore.position = CGPoint(x: self.width/2, y: self.height/2-50)
+        highScore.fontSize = 20
+        
         // For time lowering
         pillar.position = CGPoint(x: 0, y: height + heightDeltaDown)
         pillar.anchorPoint = CGPoint(x: 0, y: 0)
@@ -97,15 +104,6 @@ class Level : NSObject, SKPhysicsContactDelegate {
         rightWall.anchorPoint = CGPoint(x: 0, y: 0)
         rightWall.size = CGSize(width: xGap/2, height: height)
         scene.addChild(rightWall)
-        
-        /*let r = CGRect(x: 0, y: heightDeltaDown, width: width, height: height)
-        let rect = SKShapeNode()
-        rect.lineWidth = 3
-        rect.strokeColor = SKColor.greenColor()
-        let path = CGPathCreateMutable()
-        CGPathAddRect(path, nil, r)
-        rect.path = path
-        scene.addChild(rect)*/
         
         super.init()
         
@@ -130,29 +128,34 @@ class Level : NSObject, SKPhysicsContactDelegate {
     func level1() {
         options = ["bubble_3","bubble_4"]
         downDelta = 10
-       // startTimer()
+        
+        for var i=0;i<=matrix.count/2;i++ {
+            if fabs(CGFloat(matrix.count/2-i)) <= 2 || fabs(CGFloat(matrix.count/2-i)) > 3 {
+                matrix[i][0] = SKSpriteNode(imageNamed: options[0])
+                matrix[matrix.count-i-1][0] = SKSpriteNode(imageNamed: options[0])
+            } else {
+                 matrix[i][0] = SKSpriteNode(imageNamed: options[1])
+                matrix[matrix.count-i-1][0] = SKSpriteNode(imageNamed: options[1])
+            }
+        }
         
         for var i=0;i<matrix.count;i++ {
-            if(i==3 || i == matrix.count-4) {
-                matrix[i][0] = SKSpriteNode(imageNamed: options[1])
-            } else {
-                matrix[i][0] = SKSpriteNode(imageNamed: options[0])
-            }
-        }
-        for var i=3;i<matrix.count-2;i++ {
-            if(i==3 || i == matrix.count-3) {
-                matrix[i][1] = SKSpriteNode(imageNamed: options[0])
-            }
-            else {
+            if fabs(CGFloat(matrix.count/2-i)) < 2 {
                 matrix[i][1] = SKSpriteNode(imageNamed: options[1])
+            } else if fabs(CGFloat(matrix.count/2-i)) == 2 {
+                matrix[i][1] = SKSpriteNode(imageNamed: options[1])
+            } else if fabs(CGFloat(matrix.count/2-i)) == 3 {
+                 matrix[i][1] = SKSpriteNode(imageNamed: options[0])
             }
         }
-        for var i=3;i<matrix.count-3;i++ {
-            if(i < 5 || i > matrix.count-6) {
-                matrix[i][2] = SKSpriteNode(imageNamed: options[0])
-            }
-            else {
+        
+        for var i=0;i<=matrix.count/2;i++ {
+            if fabs(CGFloat(matrix.count/2-i)) == 0 {
                 matrix[i][2] = SKSpriteNode(imageNamed: options[1])
+                matrix[matrix.count-i-1][2] = SKSpriteNode(imageNamed: options[1])
+            } else if fabs(CGFloat(matrix.count/2-i)) < 4 {
+                matrix[i][2] = SKSpriteNode(imageNamed: options[0])
+                matrix[matrix.count-i-1][2] = SKSpriteNode(imageNamed: options[0])
             }
         }
         matrix[(Int)(CGFloat(matrix.count)/CGFloat(2))-1][3] = SKSpriteNode(imageNamed: options[0])
@@ -160,32 +163,125 @@ class Level : NSObject, SKPhysicsContactDelegate {
         matrix[(Int)(CGFloat(matrix.count)/CGFloat(2))+1][3] = SKSpriteNode(imageNamed: options[0])
  
         initBoard()
+        startTimer()
     }
     
     func level2() {
         options = ["bubble_3","bubble_4","bubble_5","bubble_6"]
-        downDelta = 7
-        startTimer()
+        downDelta = 12
+        
+        for var j=0;j<matrix[0].count/4;j++ {
+            matrix[(Int)(CGFloat(matrix.count)/CGFloat(2))][j] = SKSpriteNode(imageNamed: options[1])
+        }
+        
+        for var j=matrix[0].count/4;j<matrix[0].count/4+3;j++ {
+            matrix[(Int)(CGFloat(matrix.count)/CGFloat(2))+1][j] = SKSpriteNode(imageNamed: options[3])
+            
+            if j%2 == 1 {
+                matrix[(Int)(CGFloat(matrix.count)/CGFloat(2))][j] = SKSpriteNode(imageNamed: options[3])
+            } else {
+                matrix[(Int)(CGFloat(matrix.count)/CGFloat(2))-1][j] = SKSpriteNode(imageNamed: options[3])
+                matrix[(Int)(CGFloat(matrix.count)/CGFloat(2))][j] = SKSpriteNode(imageNamed: options[2])
+            }
+        }
+        
+
+        for var j=0;j<2;j++ {
+            matrix[(Int)(CGFloat(matrix.count)/CGFloat(2))-1][j] = SKSpriteNode(imageNamed: options[0])
+            matrix[(Int)(CGFloat(matrix.count)/CGFloat(2))+2][j] = SKSpriteNode(imageNamed: options[0])
+            if j == 0 {
+                matrix[(Int)(CGFloat(matrix.count)/CGFloat(2))-2][j] = SKSpriteNode(imageNamed: options[0])
+                matrix[(Int)(CGFloat(matrix.count)/CGFloat(2))+1][j] = SKSpriteNode(imageNamed: options[0])
+            }
+        }
         
         initBoard()
+        startTimer()
     }
     
     func level3() {
         options = ["bubble_3","bubble_4",
-            "bubble_5","bubble_6","bubble_7","bubble_8"]
-        downDelta = 5
-        startTimer()
+            "bubble_5","bubble_6","bubble_7"]
+        downDelta = 16
+        
+        for var j=0;j<6;j++ {
+            if j==2 {
+                for var k=0;k<j;k++ {
+                    matrix[k][j] = SKSpriteNode(imageNamed: options[1])
+                    matrix[matrix.count-k-1][j] = SKSpriteNode(imageNamed: options[1])
+                }
+                
+                for var k=j;k<options.count;k++ {
+                    matrix[k][j] = SKSpriteNode(imageNamed: options[k])
+                    matrix[matrix.count-k-1][j] = SKSpriteNode(imageNamed: options[k])
+                }
+                continue
+            }
+            
+            if j == 3 {
+                for var k=1;k<j;k++ {
+                    matrix[k][j] = SKSpriteNode(imageNamed: options[2])
+                    matrix[matrix.count-k][j] = SKSpriteNode(imageNamed: options[2])
+                }
+                
+                for var k=j;k<options.count;k++ {
+                    matrix[k][j] = SKSpriteNode(imageNamed: options[k])
+                    matrix[matrix.count-k][j] = SKSpriteNode(imageNamed: options[k])
+                }
+                continue
+            }
+            
+            if j == 4 {
+                for var k=0;k<j-1;k++ {
+                    matrix[k][j] = SKSpriteNode(imageNamed: options[3])
+                    matrix[matrix.count-k-1][j] = SKSpriteNode(imageNamed: options[3])
+                }
+                
+                matrix[3][j] = SKSpriteNode(imageNamed: options[4])
+                matrix[matrix.count-4][j] = SKSpriteNode(imageNamed: options[4])
+                continue
+            }
+            
+            if j == 5 {
+                for var k=1;k<j-1;k++ {
+                    matrix[k][j] = SKSpriteNode(imageNamed: options[4])
+                    matrix[matrix.count-k][j] = SKSpriteNode(imageNamed: options[4])
+                }
+                continue
+            }
+            
+            for var k=0;k<options.count;k++ {
+                matrix[k+1][j] = SKSpriteNode(imageNamed: options[k])
+            }
+            matrix[matrix.count-1][j] = SKSpriteNode(imageNamed: options[0])
+            
+            if j == 0 {
+                matrix[0][j] = SKSpriteNode(imageNamed: options[0])
+                for var k=0;k<options.count;k++ {
+                    matrix[matrix.count-k-2][j] = SKSpriteNode(imageNamed: options[k])
+                }
+            }
+            
+            if j == 1 {
+                for var k=1;k<options.count;k++ {
+                    matrix[matrix.count-k-1][j] = SKSpriteNode(imageNamed: options[k])
+                }
+            }
+        }
         
         initBoard()
+        startTimer()
     }
     
     func level4() {
-        options = ["bubble_1","bubble_2","bubble_3","bubble_4",
+        options = ["bubble_3","bubble_4",
             "bubble_5","bubble_6","bubble_7","bubble_8"]
-        downDelta = 3
-        startTimer()
+        downDelta = 20
+        
+        
         
         initBoard()
+        startTimer()
     }
     
     func startTimer() {
@@ -335,11 +431,12 @@ class Level : NSObject, SKPhysicsContactDelegate {
             }
             
             for var i=0;i<group.count;i++ {
-                let animation = SKAction.moveToY(0, duration: 1.5)
+                let animation = SKAction.moveToY(0, duration: 1)
                 let doneAction = (SKAction.runBlock({
                     if self.group.count > 0 {
                         self.scene.removeChildrenInArray(self.group)
                         self.group.removeAll()
+                        self.scene.canShoot = true
                     }
                 }))
                 let sequence = (SKAction.sequence([animation, doneAction]))
@@ -358,6 +455,7 @@ class Level : NSObject, SKPhysicsContactDelegate {
                 }
             }
             group.removeAll()
+            scene.canShoot = true
         }
         
         for var i=0;i<firstIndeces.count;i++ {
@@ -572,7 +670,8 @@ class Level : NSObject, SKPhysicsContactDelegate {
     
     func pushDown() {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-            while self.activeBubble != nil {} // Wait for fired bubble to take it's place
+            while !self.scene.canShoot {} // Wait for shooting to end
+            self.scene.canShoot = false
             self.pillar.position.y = self.positions[0][self.startingIndex+1]!.y-self.bubbleSize/2
             for var i=0;i<self.matrix.count;i++ {
                 for var j=self.matrix[i].count-1;j>=self.startingIndex;j-- {
@@ -582,8 +681,9 @@ class Level : NSObject, SKPhysicsContactDelegate {
                         }
                     } else {
                         if self.matrix[i][j-2] != nil {
-                            self.matrix[i][j-2]!.position = self.positions[i][j]!
                             self.matrix[i][j] = self.matrix[i][j-2]
+                            self.matrix[i][j]!.position = self.positions[i][j]!
+                            self.matrix[i][j-2] = nil
                         }
                     }
                 }
@@ -592,12 +692,13 @@ class Level : NSObject, SKPhysicsContactDelegate {
             self.startingIndex+=2
             
             self.checkLose()
-        });
+            self.scene.canShoot = true
+        })
     }
     
     func checkLose() {
         for var i=0;i<matrix.count;i++ {
-            if matrix[i][matrix[i].count-1] != nil {
+            if matrix[i][matrix[i].count-2] != nil {
                 winLose(false)
                 break
             }
@@ -615,6 +716,23 @@ class Level : NSObject, SKPhysicsContactDelegate {
             }
             catch {
                 print("Error playing win sound")
+            }
+            
+            let scoresDB = Scores.getInstance()
+            let previousScore = scoresDB.loadLevelScore(levelNumber)
+            
+            if scene.score > previousScore { // New high score
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+                    scoresDB.update(self.levelNumber, s: self.scene.score)
+                })
+                
+                scene.addChild(highScore)
+                let growAction = SKAction.scaleBy(1.3, duration: 2.5)
+                let doneAction = (SKAction.runBlock({
+                    self.highScore.removeFromParent()
+                }))
+                let sequence = (SKAction.sequence([growAction, doneAction]))
+                highScore.runAction(sequence)
             }
         } else {
             scene.addChild(losePanel)

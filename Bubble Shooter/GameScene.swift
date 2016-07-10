@@ -23,6 +23,7 @@ class GameScene: SKScene {
     let nextBall = SKSpriteNode(imageNamed: "bubble_1")
     let fired = SKSpriteNode(imageNamed: "bubble_1")
     var startFire = false
+    var canShoot = true
     var dirX = 1
     var speedX : CGFloat!
     var speedY : CGFloat!
@@ -44,6 +45,9 @@ class GameScene: SKScene {
     
     // Setup your scene here
     override func didMoveToView(view: SKView) {
+        let scoresDB = Scores.getInstance()
+        scoresDB.checkDB()
+        
         backgroundColor = UIColor(red: 159.0/255.0, green: 201.0/255.0, blue: 244.0/255.0, alpha: 1.0)
         addGround()
         addScore()
@@ -75,7 +79,7 @@ class GameScene: SKScene {
         let location = touch.locationInNode(self)
         
         if gameActive {
-            if(location.y > view!.frame.height/10 && !startFire) {
+            if(location.y > view!.frame.height/10 && canShoot) {
                 let audioFileUrl = NSURL.fileURLWithPath(shoot!)
                 do {
                     try audioPlayer = AVAudioPlayer(contentsOfURL: audioFileUrl)
@@ -89,6 +93,7 @@ class GameScene: SKScene {
                 node.constraints = [const]
             
                 startFire = true
+                canShoot = false
                 let diffx = location.x - (view?.frame.width)!/2
                 let diffy = location.y - (view?.frame.height)!/10
                 if(location.x > (view?.frame.width)!/2) {
@@ -138,7 +143,7 @@ class GameScene: SKScene {
     func startThread() {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             self.updatePosition()
-        });
+        })
     }
     
     func updatePosition() {
@@ -230,7 +235,7 @@ class GameScene: SKScene {
         score += s
         dispatch_async(dispatch_get_main_queue(), {
             self.scoreLabel.text = "Score: \(self.score)"
-        });
+        })
         
     }
     
