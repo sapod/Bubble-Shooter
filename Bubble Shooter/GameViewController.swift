@@ -11,12 +11,12 @@ import SpriteKit
 
 class GameViewController: UIViewController {
 
-    var scene: GameScene!
+    private var scene: GameScene!
     var levelNum : Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Configure the view
         let skView = view as! SKView
         skView.multipleTouchEnabled = false

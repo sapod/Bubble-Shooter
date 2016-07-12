@@ -6,20 +6,19 @@
 //  Copyright © 2016 sapir oded. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import CoreData
 
 class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var scoreTable: UITableView!
-    var levels : [Int] = []
-    var scores : [Int] = []
-    var scoresDB : Scores!
+    private var levels : [Int] = []
+    private var scores : [Int] = []
+    private var scoresDB : Scores!
     
-    let colorTable = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
-    let colorOdd = UIColor(red: 0.65, green: 0.88, blue: 0.74, alpha: 1)
-    let colorEven = UIColor(red: 0.65, green: 0.88, blue: 0.85, alpha: 1)
+    private let colorTable = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
+    private let colorOdd = UIColor(red: 0.65, green: 0.88, blue: 0.74, alpha: 1)
+    private let colorEven = UIColor(red: 0.65, green: 0.88, blue: 0.85, alpha: 1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +31,7 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
         scoresDB = Scores.getInstance()
         scoresDB.checkDB()
         
-        for var i=1;i<=GameScene.numOfLevels;i++ {
+        for i in 1 ..< GameScene.numOfLevels+1 {
             levels.append(i)
             scores.append(scoresDB.loadLevelScore(i))
         }

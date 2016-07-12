@@ -6,45 +6,42 @@
 //  Copyright © 2016 sapir oded. All rights reserved.
 //
 
-import Foundation
 import SpriteKit
 import AVFoundation
 
 class Level : NSObject, SKPhysicsContactDelegate {
-    let scalefactor = CGFloat(0.07)
-    internal let bubbleCategory: UInt32 = 0x1 << 0
-    var scene : GameScene
-    var options = [""]
-    var downDelta : Int!
     let bubbleSize = CGFloat(33.6)
-    let rowDiff = 5
-    let minBubbles = 3
-    let pointsPerBubble = 5
-    var mtimer : NSTimer!
+    private var scene : GameScene
+    private var options = [""]
+    private var downDelta : Int!
+    private let rowDiff = 5
+    private let minBubbles = 3
+    private let pointsPerBubble = 5
+    private var mtimer : NSTimer!
     
-    var startingIndex = 0 // First active row
-    var activeBubble : SKSpriteNode?
-    var matrix : [[SKSpriteNode?]]
-    var positions : [[CGPoint?]]
-    var group = [SKSpriteNode]()
-    var firstIndeces : [CGPoint?]
-    var connected = [CGPoint]()
-    var numBubbles = 0
-    var levelNumber : Int!
+    private var startingIndex = 0 // First active row
+    private var matrix : [[SKSpriteNode?]]
+    private var positions : [[CGPoint?]]
+    private var group = [SKSpriteNode]()
+    private var firstIndeces : [CGPoint?]
+    private var connected = [CGPoint]()
+    private var numBubbles = 0
+    private var levelNumber : Int!
     
-    var heightDeltaUp :CGFloat!
-    var heightDeltaDown :CGFloat!
-    var height : CGFloat!
-    var width : CGFloat!
-    var xGap : CGFloat!
+    private var heightDeltaUp :CGFloat!
+    private var heightDeltaDown :CGFloat!
+    private var height : CGFloat!
+    private var width : CGFloat!
+    private var xGap : CGFloat!
     
-    let winPanel : SKSpriteNode
-    let highScore : SKLabelNode
-    let losePanel : SKSpriteNode
-    
-    let pillar = SKSpriteNode(imageNamed: "pillar")
+    private let highScore : SKLabelNode
+    private let pillar = SKSpriteNode(imageNamed: "pillar")
     let leftWall = SKSpriteNode(imageNamed: "wood")
     let rightWall = SKSpriteNode(imageNamed: "wood")
+    let winPanel : SKSpriteNode
+    let losePanel : SKSpriteNode
+    
+    var activeBubble : SKSpriteNode?
     
     init(num: Int, scene: GameScene) {
         self.levelNumber = num
@@ -59,10 +56,10 @@ class Level : NSObject, SKPhysicsContactDelegate {
         
         var d = CGFloat(rowDiff*rows)
         while d >= bubbleSize {
-            rows++
+            rows += 1
             d -= bubbleSize
         }
-        rows++
+        rows += 1
         
         matrix = [[SKSpriteNode?]](count: cols, repeatedValue: [SKSpriteNode?](count: rows, repeatedValue: nil))
         positions = [[CGPoint?]](count: cols, repeatedValue: [CGPoint?](count: rows, repeatedValue: nil))
@@ -122,15 +119,19 @@ class Level : NSObject, SKPhysicsContactDelegate {
             break;
         default:
             print("No such level number: \(num)")
+            return
         }
+        
+        initBoard()
+        startTimer()
     }
     
-    func level1() {
+    private func level1() {
         options = ["bubble_3","bubble_4"]
         downDelta = 10
-        
-        for var i=0;i<=matrix.count/2;i++ {
-            if fabs(CGFloat(matrix.count/2-i)) <= 2 || fabs(CGFloat(matrix.count/2-i)) > 3 {
+
+        for i in 0 ..< matrix.count/2+1 {
+            if matrix.count/2-i <= 2 || matrix.count/2-i > 3 {
                 matrix[i][0] = SKSpriteNode(imageNamed: options[0])
                 matrix[matrix.count-i-1][0] = SKSpriteNode(imageNamed: options[0])
             } else {
@@ -139,7 +140,7 @@ class Level : NSObject, SKPhysicsContactDelegate {
             }
         }
         
-        for var i=0;i<matrix.count;i++ {
+        for i in 0 ..< matrix.count {
             if fabs(CGFloat(matrix.count/2-i)) < 2 {
                 matrix[i][1] = SKSpriteNode(imageNamed: options[1])
             } else if fabs(CGFloat(matrix.count/2-i)) == 2 {
@@ -149,11 +150,11 @@ class Level : NSObject, SKPhysicsContactDelegate {
             }
         }
         
-        for var i=0;i<=matrix.count/2;i++ {
-            if fabs(CGFloat(matrix.count/2-i)) == 0 {
+        for i in 0 ..< matrix.count/2+1 {
+            if matrix.count/2-i == 0 {
                 matrix[i][2] = SKSpriteNode(imageNamed: options[1])
                 matrix[matrix.count-i-1][2] = SKSpriteNode(imageNamed: options[1])
-            } else if fabs(CGFloat(matrix.count/2-i)) < 4 {
+            } else if matrix.count/2-i < 4 {
                 matrix[i][2] = SKSpriteNode(imageNamed: options[0])
                 matrix[matrix.count-i-1][2] = SKSpriteNode(imageNamed: options[0])
             }
@@ -161,20 +162,17 @@ class Level : NSObject, SKPhysicsContactDelegate {
         matrix[(Int)(CGFloat(matrix.count)/CGFloat(2))-1][3] = SKSpriteNode(imageNamed: options[0])
         matrix[(Int)(CGFloat(matrix.count)/CGFloat(2))][3] = SKSpriteNode(imageNamed: options[1])
         matrix[(Int)(CGFloat(matrix.count)/CGFloat(2))+1][3] = SKSpriteNode(imageNamed: options[0])
- 
-        initBoard()
-        startTimer()
     }
     
-    func level2() {
+    private func level2() {
         options = ["bubble_3","bubble_4","bubble_5","bubble_6"]
-        downDelta = 12
+        downDelta = 16
         
-        for var j=0;j<matrix[0].count/4;j++ {
+        for j in 0 ..< matrix[0].count/4 {
             matrix[(Int)(CGFloat(matrix.count)/CGFloat(2))][j] = SKSpriteNode(imageNamed: options[1])
         }
         
-        for var j=matrix[0].count/4;j<matrix[0].count/4+3;j++ {
+        for j in matrix[0].count/4 ..< matrix[0].count/4+3 {
             matrix[(Int)(CGFloat(matrix.count)/CGFloat(2))+1][j] = SKSpriteNode(imageNamed: options[3])
             
             if j%2 == 1 {
@@ -186,7 +184,7 @@ class Level : NSObject, SKPhysicsContactDelegate {
         }
         
 
-        for var j=0;j<2;j++ {
+        for j in 0 ..< 2 {
             matrix[(Int)(CGFloat(matrix.count)/CGFloat(2))-1][j] = SKSpriteNode(imageNamed: options[0])
             matrix[(Int)(CGFloat(matrix.count)/CGFloat(2))+2][j] = SKSpriteNode(imageNamed: options[0])
             if j == 0 {
@@ -194,24 +192,21 @@ class Level : NSObject, SKPhysicsContactDelegate {
                 matrix[(Int)(CGFloat(matrix.count)/CGFloat(2))+1][j] = SKSpriteNode(imageNamed: options[0])
             }
         }
-        
-        initBoard()
-        startTimer()
     }
     
-    func level3() {
+    private func level3() {
         options = ["bubble_3","bubble_4",
             "bubble_5","bubble_6","bubble_7"]
-        downDelta = 16
+        downDelta = 20
         
-        for var j=0;j<6;j++ {
+        for j in 0 ..< 6 {
             if j==2 {
-                for var k=0;k<j;k++ {
+                for k in 0 ..< j {
                     matrix[k][j] = SKSpriteNode(imageNamed: options[1])
                     matrix[matrix.count-k-1][j] = SKSpriteNode(imageNamed: options[1])
                 }
                 
-                for var k=j;k<options.count;k++ {
+                for k in j ..< options.count {
                     matrix[k][j] = SKSpriteNode(imageNamed: options[k])
                     matrix[matrix.count-k-1][j] = SKSpriteNode(imageNamed: options[k])
                 }
@@ -219,12 +214,12 @@ class Level : NSObject, SKPhysicsContactDelegate {
             }
             
             if j == 3 {
-                for var k=1;k<j;k++ {
+                for k in 1 ..< j {
                     matrix[k][j] = SKSpriteNode(imageNamed: options[2])
                     matrix[matrix.count-k][j] = SKSpriteNode(imageNamed: options[2])
                 }
                 
-                for var k=j;k<options.count;k++ {
+                for k in j ..< options.count {
                     matrix[k][j] = SKSpriteNode(imageNamed: options[k])
                     matrix[matrix.count-k][j] = SKSpriteNode(imageNamed: options[k])
                 }
@@ -232,7 +227,7 @@ class Level : NSObject, SKPhysicsContactDelegate {
             }
             
             if j == 4 {
-                for var k=0;k<j-1;k++ {
+                for k in 0 ..< j-1 {
                     matrix[k][j] = SKSpriteNode(imageNamed: options[3])
                     matrix[matrix.count-k-1][j] = SKSpriteNode(imageNamed: options[3])
                 }
@@ -243,49 +238,69 @@ class Level : NSObject, SKPhysicsContactDelegate {
             }
             
             if j == 5 {
-                for var k=1;k<j-1;k++ {
+                for k in 1 ..< j-1 {
                     matrix[k][j] = SKSpriteNode(imageNamed: options[4])
                     matrix[matrix.count-k][j] = SKSpriteNode(imageNamed: options[4])
                 }
                 continue
             }
             
-            for var k=0;k<options.count;k++ {
+            for k in 0 ..< options.count {
                 matrix[k+1][j] = SKSpriteNode(imageNamed: options[k])
             }
             matrix[matrix.count-1][j] = SKSpriteNode(imageNamed: options[0])
             
             if j == 0 {
                 matrix[0][j] = SKSpriteNode(imageNamed: options[0])
-                for var k=0;k<options.count;k++ {
+                for k in 0 ..< options.count {
                     matrix[matrix.count-k-2][j] = SKSpriteNode(imageNamed: options[k])
                 }
             }
             
             if j == 1 {
-                for var k=1;k<options.count;k++ {
+                for k in 1 ..< options.count {
                     matrix[matrix.count-k-1][j] = SKSpriteNode(imageNamed: options[k])
                 }
             }
         }
-        
-        initBoard()
-        startTimer()
     }
     
-    func level4() {
+    private func level4() {
         options = ["bubble_3","bubble_4",
             "bubble_5","bubble_6","bubble_7","bubble_8"]
-        downDelta = 20
+        downDelta = 24
+        
+        for i in 0 ..< matrix.count/2+1 {
+            if matrix.count/2-i <= 1 {
+                matrix[i][0] = SKSpriteNode(imageNamed: options[5])
+                matrix[matrix.count-i-1][0] = SKSpriteNode(imageNamed: options[5])
+            }
+        }
+        
+        for i in 0 ..< matrix.count/2+1 {
+            if (matrix.count-1)%2 == 1 {
+                if matrix.count/2-i == 0 {
+                    matrix[i][1] = SKSpriteNode(imageNamed: options[5])
+                } else if matrix.count/2-i == 1 {
+                    matrix[i][1] = SKSpriteNode(imageNamed: options[4])
+                    matrix[matrix.count-i][1] = SKSpriteNode(imageNamed: options[4])
+                }
+            } else {
+                if matrix.count/2-i <= 1 {
+                    matrix[i][1] = SKSpriteNode(imageNamed: options[5])
+                    matrix[matrix.count-i-1][1] = SKSpriteNode(imageNamed: options[5])
+                } else if matrix.count/2-i == 2 {
+                    matrix[i][1] = SKSpriteNode(imageNamed: options[4])
+                    matrix[matrix.count-i][1] = SKSpriteNode(imageNamed: options[4])
+                }
+            }
+        }
         
         
-        
-        initBoard()
-        startTimer()
     }
     
-    func startTimer() {
-        mtimer = NSTimer.scheduledTimerWithTimeInterval(Double(downDelta), target: self, selector: Selector("pushDown"), userInfo: nil, repeats: true)
+    private func startTimer() {
+        mtimer = NSTimer.scheduledTimerWithTimeInterval(Double(downDelta), target: self, selector: #selector(Level.pushDown), userInfo: nil, repeats: true)
     }
     
     func endTimer() {
@@ -300,30 +315,26 @@ class Level : NSObject, SKPhysicsContactDelegate {
         return bubble
     }
     
-    func getOptions() -> [String] {
-        return options
-    }
-    
-    func addBubble(bubble: SKSpriteNode, index: CGPoint) {
+    private func addBubble(bubble: SKSpriteNode, index: CGPoint) {
         let copy = SKSpriteNode()
         copy.texture = bubble.texture
         copy.size = bubble.size
         copy.position = getPositionFromPoint(index)
         matrix[(Int)(index.x)][(Int)(index.y)] = copy
         scene.addChild(copy)
-        numBubbles++
+        numBubbles += 1
         print("ball added at (\((Int)(index.x)),\((Int)(index.y)))")
     }
     
-    func initBoard() {
-        for var i=0;i<matrix.count;i++ {
-            for var j=0;j<matrix[i].count;j++ {
+    private func initBoard() {
+        for i in 0 ..< matrix.count {
+            for j in 0 ..< matrix[i].count {
                 let bubble = matrix[i][j]
                 if positions[i][j] == nil { // init positions
                     positions[i][j] = getPositionFromPoint(CGPoint(x: i, y: j))
                 }
                 if bubble != nil {
-                    numBubbles++
+                    numBubbles += 1
                     bubble!.size = CGSize(width: bubbleSize, height: bubbleSize)
                     bubble!.position = positions[i][j]!
                     
@@ -344,7 +355,7 @@ class Level : NSObject, SKPhysicsContactDelegate {
         print("c = \(matrix.count), index c = \(matrix[0].count)")
     }
     
-    func getPositionFromPoint(p: CGPoint) -> CGPoint {
+    private func getPositionFromPoint(p: CGPoint) -> CGPoint {
         var pos = CGPointMake(xGap/2 + CGFloat(p.x)*bubbleSize+bubbleSize/2, height+heightDeltaDown-(CGFloat(p.y)*bubbleSize+bubbleSize/2))
         pos.y += p.y*CGFloat(rowDiff)
         if p.y%2 == 1 {
@@ -361,8 +372,8 @@ class Level : NSObject, SKPhysicsContactDelegate {
             if index != nil && Int(index!.y) == startingIndex { // Last possible row
                 collided(index!, dir: dir)
             } else if index != nil {
-                for var i=0;i<matrix.count;i++ {
-                    for var j=startingIndex;j<matrix[i].count;j++ {
+                for i in 0 ..< matrix.count {
+                    for j in startingIndex ..< matrix[i].count {
                         if matrix[i][j] != nil && CGPoint.distance(pos, p2: matrix[i][j]!.position) <= bubbleSize+1 {
                             collided(index!, dir: dir)
                             return
@@ -373,7 +384,8 @@ class Level : NSObject, SKPhysicsContactDelegate {
         }
     }
     
-    func collided(var index: CGPoint, dir: CGVector) {
+    private func collided(index: CGPoint, dir: CGVector) {
+        var index1 = index
         if matrix[(Int)(index.x)][(Int)(index.y)] != nil {
             print("Error: Filled index!")
             
@@ -393,11 +405,11 @@ class Level : NSObject, SKPhysicsContactDelegate {
                     return
                 }
             }
-            index = i!
+            index1 = i!
         }
         
         if index.y%2 == 1 && index.x == 0 {
-            index.y++
+            index1.y++
         }
         
         let audioFileUrl = NSURL.fileURLWithPath(scene.hit!)
@@ -409,11 +421,11 @@ class Level : NSObject, SKPhysicsContactDelegate {
             print("Error playing hit sound")
         }
 
-        addBubble(activeBubble!, index: index)
+        addBubble(activeBubble!, index: index1)
         scene.endShoot()
         
         group.removeAll()
-        checkNeighbors(matrix[(Int)(index.x)][(Int)(index.y)]!, index: index)
+        checkNeighbors(matrix[(Int)(index1.x)][(Int)(index1.y)]!, index: index1)
         
         if group.count >= minBubbles {
             checkFalls()
@@ -430,7 +442,7 @@ class Level : NSObject, SKPhysicsContactDelegate {
                 print("Error playing falling sound")
             }
             
-            for var i=0;i<group.count;i++ {
+            for i in 0 ..< group.count {
                 let animation = SKAction.moveToY(0, duration: 1)
                 let doneAction = (SKAction.runBlock({
                     if self.group.count > 0 {
@@ -447,7 +459,7 @@ class Level : NSObject, SKPhysicsContactDelegate {
                 winLose(true)
             }
         } else { // Return the bubbles
-            for var i=0;i<firstIndeces.count;i++ {
+            for i in 0 ..< firstIndeces.count {
                 if firstIndeces[i] != nil {
                     let x = (Int)(firstIndeces[i]!.x)
                     let y = (Int)(firstIndeces[i]!.y)
@@ -458,7 +470,7 @@ class Level : NSObject, SKPhysicsContactDelegate {
             scene.canShoot = true
         }
         
-        for var i=0;i<firstIndeces.count;i++ {
+        for i in 0 ..< firstIndeces.count {
             firstIndeces[i] = nil
         }
         
@@ -466,9 +478,9 @@ class Level : NSObject, SKPhysicsContactDelegate {
         checkLose()
     }
     
-    func positionIndex(pos: CGPoint) -> CGPoint? {
-        for var i=0;i<positions.count;i++ {
-            for var j=startingIndex;j<positions[i].count;j++ {
+    private func positionIndex(pos: CGPoint) -> CGPoint? {
+        for i in 0 ..< positions.count {
+            for j in startingIndex ..< positions[i].count {
                 let rect = CGRect(x: positions[i][j]!.x - bubbleSize/2, y: positions[i][j]!.y - bubbleSize/2, width: bubbleSize, height: bubbleSize)
                 if(CGRectContainsPoint(rect, pos)) {
                     return CGPoint(x: i,y: j)
@@ -479,7 +491,7 @@ class Level : NSObject, SKPhysicsContactDelegate {
         return nil
     }
     
-    func checkNeighbors(root: SKSpriteNode, index: CGPoint) {
+    private func checkNeighbors(root: SKSpriteNode, index: CGPoint) {
         let col = (Int)(index.x)
         let row = (Int)(index.y)
         let color = root.texture?.description
@@ -490,7 +502,7 @@ class Level : NSObject, SKPhysicsContactDelegate {
             matrix[col][row] = nil
             
             // Saving the first indeces to return the bubbles to their place if there are not enough buubles
-            for var i=0;i<firstIndeces.count;i++ {
+            for i in 0 ..< firstIndeces.count {
                 if firstIndeces[i] == nil {
                     firstIndeces[i] = index
                     break
@@ -562,14 +574,14 @@ class Level : NSObject, SKPhysicsContactDelegate {
         }
     }
     
-    func checkFalls() {
+    private func checkFalls() {
         var flags = [[Bool]](count: matrix.count, repeatedValue: [Bool](count: matrix[0].count, repeatedValue: false))
         connected.removeAll()
         
-        for var i=0;i<matrix.count;i++ {
+        for i in 0 ..< matrix.count {
             if matrix[i][startingIndex] != nil {
                 connections(CGPoint(x: i, y: startingIndex))
-                for var j=0;j<connected.count;j++ {
+                for j in 0 ..< connected.count {
                     let x = (Int)(connected[j].x)
                     let y = (Int)(connected[j].y)
                     flags[x][y] = true
@@ -577,8 +589,8 @@ class Level : NSObject, SKPhysicsContactDelegate {
             }
         }
         
-        for var i=0;i<flags.count;i++ {
-            for var j=0; j<flags[i].count;j++ {
+        for i in 0 ..< flags.count {
+            for j in 0 ..< flags[i].count {
                 if matrix[i][j] != nil && !flags[i][j] { // Bubble is not connected
                     group.append(matrix[i][j]!)
                     matrix[i][j] = nil
@@ -587,7 +599,7 @@ class Level : NSObject, SKPhysicsContactDelegate {
         }
     }
     
-    func connections(index: CGPoint) {
+    private func connections(index: CGPoint) {
         if !connected.contains(index) {
             connected.append(index)
         }
@@ -673,8 +685,9 @@ class Level : NSObject, SKPhysicsContactDelegate {
             while !self.scene.canShoot {} // Wait for shooting to end
             self.scene.canShoot = false
             self.pillar.position.y = self.positions[0][self.startingIndex+1]!.y-self.bubbleSize/2
-            for var i=0;i<self.matrix.count;i++ {
-                for var j=self.matrix[i].count-1;j>=self.startingIndex;j-- {
+            for i in 0 ..< self.matrix.count {
+              //  for var j=self.matrix[i].count-1;j>=self.startingIndex;j-=1
+                for j in (self.startingIndex...self.matrix[i].count-1).reverse() {
                     if j-self.startingIndex < 2 {
                         if self.matrix[i][j] != nil {
                             self.matrix[i][j] = nil
@@ -696,8 +709,8 @@ class Level : NSObject, SKPhysicsContactDelegate {
         })
     }
     
-    func checkLose() {
-        for var i=0;i<matrix.count;i++ {
+    private func checkLose() {
+        for i in 0 ..< matrix.count {
             if matrix[i][matrix[i].count-2] != nil {
                 winLose(false)
                 break
@@ -705,7 +718,7 @@ class Level : NSObject, SKPhysicsContactDelegate {
         }
     }
     
-    func winLose(win: Bool) {
+    private func winLose(win: Bool) {
         if win {
             scene.addChild(winPanel)
             
@@ -726,13 +739,9 @@ class Level : NSObject, SKPhysicsContactDelegate {
                     scoresDB.update(self.levelNumber, s: self.scene.score)
                 })
                 
-                scene.addChild(highScore)
-                let growAction = SKAction.scaleBy(1.3, duration: 2.5)
-                let doneAction = (SKAction.runBlock({
-                    self.highScore.removeFromParent()
-                }))
-                let sequence = (SKAction.sequence([growAction, doneAction]))
-                highScore.runAction(sequence)
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_MSEC) * 1250), dispatch_get_main_queue(), {
+                    self.showHighScore()
+                })
             }
         } else {
             scene.addChild(losePanel)
@@ -751,6 +760,18 @@ class Level : NSObject, SKPhysicsContactDelegate {
         endTimer()
     }
     
+    private func showHighScore() {
+        scene.addChild(highScore)
+        let growAction = SKAction.scaleBy(1.3, duration: 1)
+        let doneAction = (SKAction.runBlock({
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC) * 2), dispatch_get_main_queue(), {
+               self.highScore.removeFromParent()
+            })
+        }))
+        let sequence = (SKAction.sequence([growAction, doneAction]))
+        highScore.runAction(sequence)
+    }
+    
     func removePanels() {
         if scene.children.contains(winPanel) {
             winPanel.removeFromParent()
@@ -761,8 +782,8 @@ class Level : NSObject, SKPhysicsContactDelegate {
     }
     
     func reset() {
-        for var i=0;i<matrix.count;i++ {
-            for var j=0;j<matrix[i].count;j++ {
+        for i in 0 ..< matrix.count {
+            for j in 0 ..< matrix[i].count {
                 if matrix[i][j] != nil {
                     matrix[i][j]!.removeFromParent()
                 }

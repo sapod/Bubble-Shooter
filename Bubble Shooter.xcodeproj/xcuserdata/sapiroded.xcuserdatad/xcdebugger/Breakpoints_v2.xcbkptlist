@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "313"
-            endingLineNumber = "313"
+            startingLineNumber = "341"
+            endingLineNumber = "341"
             landmarkName = "addBubble(_:index:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "324"
-            endingLineNumber = "324"
+            startingLineNumber = "352"
+            endingLineNumber = "352"
             landmarkName = "initBoard()"
             landmarkType = "5">
          </BreakpointContent>
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "331"
-            endingLineNumber = "331"
+            startingLineNumber = "359"
+            endingLineNumber = "359"
             landmarkName = "initBoard()"
             landmarkType = "5">
          </BreakpointContent>
@@ -250,11 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "529"
-            endingLineNumber = "529"
+            startingLineNumber = "558"
+            endingLineNumber = "558"
             landmarkName = "checkNeighbors(_:index:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -266,11 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "318"
-            endingLineNumber = "318"
+            startingLineNumber = "346"
+            endingLineNumber = "346"
             landmarkName = "initBoard()"
             landmarkType = "5">
          </BreakpointContent>
@@ -282,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "317"
-            endingLineNumber = "317"
+            startingLineNumber = "345"
+            endingLineNumber = "345"
             landmarkName = "Level"
             landmarkType = "3">
          </BreakpointContent>
@@ -298,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "477"
-            endingLineNumber = "477"
+            startingLineNumber = "506"
+            endingLineNumber = "506"
             landmarkName = "positionIndex(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -314,11 +314,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "527"
-            endingLineNumber = "527"
+            startingLineNumber = "556"
+            endingLineNumber = "556"
             landmarkName = "checkNeighbors(_:index:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -330,11 +330,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "531"
-            endingLineNumber = "531"
+            startingLineNumber = "560"
+            endingLineNumber = "560"
             landmarkName = "checkNeighbors(_:index:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -346,11 +346,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "528"
-            endingLineNumber = "528"
+            startingLineNumber = "557"
+            endingLineNumber = "557"
             landmarkName = "checkNeighbors(_:index:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -378,11 +378,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "469"
-            endingLineNumber = "469"
+            startingLineNumber = "498"
+            endingLineNumber = "498"
             landmarkName = "positionIndex(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -394,11 +394,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "540"
-            endingLineNumber = "540"
+            startingLineNumber = "569"
+            endingLineNumber = "569"
             landmarkName = "checkNeighbors(_:index:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -410,11 +410,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "541"
-            endingLineNumber = "541"
+            startingLineNumber = "570"
+            endingLineNumber = "570"
             landmarkName = "checkNeighbors(_:index:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -426,11 +426,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "601"
-            endingLineNumber = "601"
+            startingLineNumber = "630"
+            endingLineNumber = "630"
             landmarkName = "connections(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -442,11 +442,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "633"
-            endingLineNumber = "633"
+            startingLineNumber = "662"
+            endingLineNumber = "662"
             landmarkName = "connections(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -458,11 +458,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "485"
-            endingLineNumber = "485"
+            startingLineNumber = "514"
+            endingLineNumber = "514"
             landmarkName = "checkNeighbors(_:index:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -474,11 +474,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "539"
-            endingLineNumber = "539"
+            startingLineNumber = "568"
+            endingLineNumber = "568"
             landmarkName = "checkNeighbors(_:index:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -490,11 +490,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "573"
-            endingLineNumber = "573"
+            startingLineNumber = "602"
+            endingLineNumber = "602"
             landmarkName = "checkFalls()"
             landmarkType = "5">
          </BreakpointContent>
@@ -506,11 +506,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "545"
-            endingLineNumber = "545"
+            startingLineNumber = "574"
+            endingLineNumber = "574"
             landmarkName = "checkNeighbors(_:index:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -522,11 +522,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "647"
-            endingLineNumber = "647"
+            startingLineNumber = "676"
+            endingLineNumber = "676"
             landmarkName = "connections(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -570,11 +570,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490030143.466913"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "824"
-            endingLineNumber = "824"
+            startingLineNumber = "862"
+            endingLineNumber = "862"
             landmarkName = "CGPoint"
             landmarkType = "3">
          </BreakpointContent>
@@ -586,11 +586,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "367"
-            endingLineNumber = "367"
+            startingLineNumber = "395"
+            endingLineNumber = "395"
             landmarkName = "checkCollision(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -602,11 +602,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "523"
-            endingLineNumber = "523"
+            startingLineNumber = "552"
+            endingLineNumber = "552"
             landmarkName = "checkNeighbors(_:index:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -618,11 +618,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "522"
-            endingLineNumber = "522"
+            startingLineNumber = "551"
+            endingLineNumber = "551"
             landmarkName = "checkNeighbors(_:index:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -634,11 +634,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "524"
-            endingLineNumber = "524"
+            startingLineNumber = "553"
+            endingLineNumber = "553"
             landmarkName = "checkNeighbors(_:index:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -650,11 +650,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "366"
-            endingLineNumber = "366"
+            startingLineNumber = "394"
+            endingLineNumber = "394"
             landmarkName = "checkCollision(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -666,11 +666,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "365"
-            endingLineNumber = "365"
+            startingLineNumber = "393"
+            endingLineNumber = "393"
             landmarkName = "checkCollision(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -682,11 +682,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "451"
-            endingLineNumber = "451"
+            startingLineNumber = "480"
+            endingLineNumber = "480"
             landmarkName = "collided(_:dir:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -698,11 +698,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "471"
-            endingLineNumber = "471"
+            startingLineNumber = "500"
+            endingLineNumber = "500"
             landmarkName = "positionIndex(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -746,11 +746,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490030143.466913"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "767"
-            endingLineNumber = "767"
+            startingLineNumber = "805"
+            endingLineNumber = "805"
             landmarkName = "reset()"
             landmarkType = "5">
          </BreakpointContent>
@@ -762,11 +762,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "288"
-            endingLineNumber = "288"
+            startingLineNumber = "316"
+            endingLineNumber = "316"
             landmarkName = "startTimer()"
             landmarkType = "5">
          </BreakpointContent>
@@ -778,11 +778,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "673"
-            endingLineNumber = "673"
+            startingLineNumber = "702"
+            endingLineNumber = "702"
             landmarkName = "pushDown()"
             landmarkType = "5">
          </BreakpointContent>
@@ -794,11 +794,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "672"
-            endingLineNumber = "672"
+            startingLineNumber = "701"
+            endingLineNumber = "701"
             landmarkName = "pushDown()"
             landmarkType = "5">
          </BreakpointContent>
@@ -810,11 +810,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "679"
-            endingLineNumber = "679"
+            startingLineNumber = "709"
+            endingLineNumber = "709"
             landmarkName = "pushDown()"
             landmarkType = "5">
          </BreakpointContent>
@@ -826,11 +826,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "677"
-            endingLineNumber = "677"
+            startingLineNumber = "706"
+            endingLineNumber = "706"
             landmarkName = "pushDown()"
             landmarkType = "5">
          </BreakpointContent>
@@ -842,11 +842,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "693"
-            endingLineNumber = "693"
+            startingLineNumber = "723"
+            endingLineNumber = "723"
             landmarkName = "pushDown()"
             landmarkType = "5">
          </BreakpointContent>
@@ -858,11 +858,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "683"
-            endingLineNumber = "683"
+            startingLineNumber = "713"
+            endingLineNumber = "713"
             landmarkName = "pushDown()"
             landmarkType = "5">
          </BreakpointContent>
@@ -874,11 +874,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "570"
-            endingLineNumber = "570"
+            startingLineNumber = "599"
+            endingLineNumber = "599"
             landmarkName = "checkFalls()"
             landmarkType = "5">
          </BreakpointContent>
@@ -890,11 +890,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "580"
-            endingLineNumber = "580"
+            startingLineNumber = "609"
+            endingLineNumber = "609"
             landmarkName = "checkFalls()"
             landmarkType = "5">
          </BreakpointContent>
@@ -906,11 +906,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "581"
-            endingLineNumber = "581"
+            startingLineNumber = "610"
+            endingLineNumber = "610"
             landmarkName = "checkFalls()"
             landmarkType = "5">
          </BreakpointContent>
@@ -922,11 +922,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "420"
-            endingLineNumber = "420"
+            startingLineNumber = "449"
+            endingLineNumber = "449"
             landmarkName = "collided(_:dir:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -938,11 +938,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "419"
-            endingLineNumber = "419"
+            startingLineNumber = "448"
+            endingLineNumber = "448"
             landmarkName = "collided(_:dir:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -954,11 +954,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "582"
-            endingLineNumber = "582"
+            startingLineNumber = "611"
+            endingLineNumber = "611"
             landmarkName = "checkFalls()"
             landmarkType = "5">
          </BreakpointContent>
@@ -970,11 +970,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "447"
-            endingLineNumber = "447"
+            startingLineNumber = "476"
+            endingLineNumber = "476"
             landmarkName = "collided(_:dir:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -986,11 +986,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "674"
-            endingLineNumber = "674"
+            startingLineNumber = "703"
+            endingLineNumber = "703"
             landmarkName = "pushDown()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1114,7 +1114,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/GameViewController.swift"
-            timestampString = "489767904.219418"
+            timestampString = "489921607.531269"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
@@ -1130,11 +1130,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/ScoresViewController.swift"
-            timestampString = "489863558.412005"
+            timestampString = "490030356.002885"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1146,7 +1146,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/ScoresViewController.swift"
-            timestampString = "489863558.412005"
+            timestampString = "490030356.002885"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "46"
@@ -1162,7 +1162,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/ScoresViewController.swift"
-            timestampString = "489863558.412005"
+            timestampString = "490030356.002885"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "51"
@@ -1178,7 +1178,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/ScoresViewController.swift"
-            timestampString = "489863558.412005"
+            timestampString = "490030356.002885"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "36"
@@ -1226,11 +1226,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "685"
-            endingLineNumber = "685"
+            startingLineNumber = "715"
+            endingLineNumber = "715"
             landmarkName = "pushDown()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1242,11 +1242,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "684"
-            endingLineNumber = "684"
+            startingLineNumber = "714"
+            endingLineNumber = "714"
             landmarkName = "pushDown()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1258,13 +1258,109 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bubble Shooter/Level.swift"
-            timestampString = "489870955.687431"
+            timestampString = "490026515.293592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "377"
-            endingLineNumber = "377"
+            startingLineNumber = "406"
+            endingLineNumber = "406"
             landmarkName = "collided(_:dir:)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bubble Shooter/Level.swift"
+            timestampString = "490026515.293592"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "283"
+            endingLineNumber = "283"
+            landmarkName = "level4()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bubble Shooter/Level.swift"
+            timestampString = "490026515.293592"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "293"
+            endingLineNumber = "293"
+            landmarkName = "level4()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bubble Shooter/Level.swift"
+            timestampString = "490026515.293592"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "289"
+            endingLineNumber = "289"
+            landmarkName = "level4()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bubble Shooter/Level.swift"
+            timestampString = "490026515.293592"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "462"
+            endingLineNumber = "462"
+            landmarkName = "collided(_:dir:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bubble Shooter/Level.swift"
+            timestampString = "490030143.466913"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "802"
+            endingLineNumber = "802"
+            landmarkName = "reset()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bubble Shooter/Level.swift"
+            timestampString = "490033749.765724"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "Level"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

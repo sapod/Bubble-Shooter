@@ -16,17 +16,39 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="Iuy-Hu-oRu" kind="relationship" relationship="rootViewController" id="9jy-pm-DTi"/>
+                        <segue destination="mPh-cJ-Ujr" kind="relationship" relationship="rootViewController" id="fnd-1a-7JK"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9bm-VQ-1Db" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-401" y="-34"/>
+            <point key="canvasLocation" x="-728" y="-1"/>
         </scene>
-        <!--View Controller-->
+        <!--Launch View Controller-->
+        <scene sceneID="aLu-aQ-NtR">
+            <objects>
+                <viewController id="mPh-cJ-Ujr" customClass="LaunchViewController" customModule="Bubble_Shooter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PvE-dP-mB3"/>
+                        <viewControllerLayoutGuide type="bottom" id="5zf-5o-D1K"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aRp-2e-ZL1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.48627450980392156" green="0.68235294117647061" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="vRN-Ud-lcA"/>
+                    <connections>
+                        <segue destination="Iuy-Hu-oRu" kind="push" identifier="StartGame" id="UaC-u0-vWf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Ep-Vv-XWg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-328" y="-3"/>
+        </scene>
+        <!--Menu View Controller-->
         <scene sceneID="xi5-X6-eAV">
             <objects>
-                <viewController id="Iuy-Hu-oRu" sceneMemberID="viewController">
+                <viewController id="Iuy-Hu-oRu" customClass="MenuViewController" customModule="Bubble_Shooter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rCV-W8-5d8"/>
                         <viewControllerLayoutGuide type="bottom" id="c7m-q6-VJr"/>
@@ -236,7 +258,7 @@ Shoot a bubble by tapping the screen in the direction you want to shoot.
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="138-im-gb9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-194" y="742"/>
+            <point key="canvasLocation" x="-119" y="742"/>
         </scene>
         <!--Scores View Controller-->
         <scene sceneID="ey0-Xb-Vh6">
@@ -324,7 +346,7 @@ Shoot a bubble by tapping the screen in the direction you want to shoot.
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="prQ-Tq-0yW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="175" y="742"/>
+            <point key="canvasLocation" x="215" y="742"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
@@ -343,7 +365,7 @@ Shoot a bubble by tapping the screen in the direction you want to shoot.
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="900" y="40"/>
+            <point key="canvasLocation" x="902" y="-1"/>
         </scene>
         <!--Level Selection Controller-->
         <scene sceneID="xQG-wP-QGM">
@@ -442,7 +464,7 @@ Shoot a bubble by tapping the screen in the direction you want to shoot.
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gc5-6f-nCM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="477" y="40"/>
+            <point key="canvasLocation" x="477" y="-1"/>
         </scene>
     </scenes>
     <resources>

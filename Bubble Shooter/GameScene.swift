@@ -11,29 +11,30 @@ import AVFoundation
 
 class GameScene: SKScene {
     static let numOfLevels = 4
-    var level : Level!
+    private var level : Level!
+    
+    private var scoreLabel : UILabel!
+    private let node = SKNode()
+    private let arrow = SKSpriteNode(imageNamed: "arrow")
+    private let firebg = SKSpriteNode(imageNamed: "fireBG")
+    private let fireBall = SKSpriteNode(imageNamed: "bubble_1")
+    private let nextBall = SKSpriteNode(imageNamed: "bubble_1")
+    private let fired = SKSpriteNode(imageNamed: "bubble_1")
+    
+    private var didWin = true
+    private var startFire = false
+    private var dirX = 1
+    private var speedX : CGFloat!
+    private var speedY : CGFloat!
+    private var dir : CGVector!
+    
+    var canShoot = true
+    var gameActive = true
     var levelNum : Int!
     var score = 0
-    var scoreLabel : UILabel!
-    var skground : SKSpriteNode!
-    let node = SKNode()
-    let arrow = SKSpriteNode(imageNamed: "arrow")
-    let firebg = SKSpriteNode(imageNamed: "fireBG")
-    let fireBall = SKSpriteNode(imageNamed: "bubble_1")
-    let nextBall = SKSpriteNode(imageNamed: "bubble_1")
-    let fired = SKSpriteNode(imageNamed: "bubble_1")
-    var startFire = false
-    var canShoot = true
-    var dirX = 1
-    var speedX : CGFloat!
-    var speedY : CGFloat!
-    var dir : CGVector!
-    
     var navHeight : CGFloat!
     var viewController : GameViewController!
-    
-    var gameActive = true
-    var didWin = true
+    var skground : SKSpriteNode!
     
     // Audio
     var audioPlayer:AVAudioPlayer!
@@ -116,7 +117,7 @@ class GameScene: SKScene {
             if didWin {
                 if level.winPanel.containsPoint(location) { // Nect level
                     if levelNum < GameScene.numOfLevels {
-                        levelNum!++                        
+                        levelNum! += 1                        
                         level.removePanels()
                         level.reset()
                         level = Level(num: levelNum, scene: self)
@@ -140,13 +141,13 @@ class GameScene: SKScene {
         }
     }
     
-    func startThread() {
+    private func startThread() {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             self.updatePosition()
         })
     }
     
-    func updatePosition() {
+    private func updatePosition() {
         while startFire {
             let delta = CGFloat(0.3)
             var point = fired.position
@@ -170,11 +171,6 @@ class GameScene: SKScene {
         }
     }
     
-   // Called before each frame is rendered
-    override func update(currentTime: CFTimeInterval) {
-      
-    }
-    
     internal func endShoot() {
         if(startFire) {
             startFire = false
@@ -183,7 +179,7 @@ class GameScene: SKScene {
         }
     }
     
-    func setFireBalls() {
+    private func setFireBalls() {
         fireBall.position = CGPointMake(view!.frame.width/2, view!.frame.height/10)
         fireBall.size = CGSize(width: level.bubbleSize, height: level.bubbleSize)
         fireBall.texture =  SKTexture(imageNamed: level.generateBubble())
@@ -197,7 +193,7 @@ class GameScene: SKScene {
         fired.texture = fireBall.texture
     }
     
-    func setNode() {
+    private func setNode() {
         node.position = CGPointMake(CGRectGetMidX(self.frame), view!.frame.height/10)
         node.zPosition = 0
         
@@ -208,14 +204,14 @@ class GameScene: SKScene {
         firebg.size = CGSize(width: 40.44, height: 40.44)
     }
     
-    func addGround() {
+    private func addGround() {
         skground = SKSpriteNode(imageNamed: "ground")
         skground.size = CGSize(width: view!.frame.width, height: view!.frame.height/10)
         skground.position = CGPointMake(view!.frame.width/2, view!.frame.height/20)
         addChild(skground)
     }
     
-    func addScore() {
+    private func addScore() {
         let coinView = UIImageView(frame: CGRect(x: 8, y: (view?.frame.height)!-40, width: 32, height: 32))
         coinView.image = UIImage.animatedImageNamed("coin", duration: 1.5)
         view!.addSubview(coinView)
@@ -239,7 +235,7 @@ class GameScene: SKScene {
         
     }
     
-    func resetGame() {
+    private func resetGame() {
         viewController.title = "Level \(levelNum)"
         gameActive = true
         setFireBalls()

@@ -6,14 +6,13 @@
 //  Copyright © 2016 sapir oded. All rights reserved.
 //
 
-import Foundation
 import CoreData
 import UIKit
 
 class Scores: NSManagedObject {
-    let key = "Scores"
-    let levelKey = "level"
-    let scoreKey = "score"
+    private let key = "Scores"
+    private let levelKey = "level"
+    private let scoreKey = "score"
     @NSManaged var level: NSNumber?
     @NSManaged var score: NSNumber?
  
@@ -38,7 +37,7 @@ class Scores: NSManagedObject {
     
     func checkDB() {
         if load().count < GameScene.numOfLevels {
-            for var i=1;i<=GameScene.numOfLevels;i++ {
+            for i in 1 ..< GameScene.numOfLevels+1 {
                 insert(i, score: 0)
             }
         }
@@ -62,7 +61,7 @@ class Scores: NSManagedObject {
     func update(l: Int, s: Int) {
         let results = load()
         
-        for var i=0;i<results.count;i++ {
+        for i in 0 ..< results.count {
             if results[i].valueForKey(levelKey)! as! Int == l {
                 results[i].setValue(s, forKey: scoreKey)
                 do {
@@ -78,7 +77,7 @@ class Scores: NSManagedObject {
     func loadLevelScore(l: Int) -> Int {
         let results = load()
 
-        for var i=0;i<results.count;i++ {
+        for i in 0 ..< results.count {
             if results[i].valueForKey(levelKey)! as! Int == l {
                 return results[i].valueForKey(scoreKey)! as! Int
             }
@@ -103,7 +102,7 @@ class Scores: NSManagedObject {
     
     func reset() {
         let results = load()
-        for var i=0;i<results.count;i++ {
+        for i in 0 ..< results.count {
             results[i].setValue(0, forKey: scoreKey)
         }
         do {

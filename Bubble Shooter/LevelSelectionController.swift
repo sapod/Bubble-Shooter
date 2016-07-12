@@ -6,7 +6,6 @@
 //  Copyright © 2016 sapir oded. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class LevelSelectionController: UIViewController {
