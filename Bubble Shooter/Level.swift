@@ -77,11 +77,13 @@ class Level : NSObject, SKPhysicsContactDelegate {
         losePanel.size = size
         losePanel.position = pos
         
-        highScore = SKLabelNode(fontNamed: "Ariel")
+        highScore = SKLabelNode(fontNamed: "Arial-BoldMT")
         highScore.text = "New high score!"
         highScore.fontColor = UIColor.redColor()
         highScore.position = CGPoint(x: self.width/2, y: self.height/2-50)
         highScore.fontSize = 20
+        highScore.hidden = true
+        scene.addChild(highScore)
         
         // For time lowering
         pillar.position = CGPoint(x: 0, y: height + heightDeltaDown)
@@ -269,12 +271,11 @@ class Level : NSObject, SKPhysicsContactDelegate {
         options = ["bubble_3","bubble_4",
             "bubble_5","bubble_6","bubble_7","bubble_8"]
         downDelta = 24
+        var i : Int
         
-        for i in 0 ..< matrix.count/2+1 {
-            if matrix.count/2-i <= 1 {
+        for i in matrix.count/2-1 ..< matrix.count/2+1 {
                 matrix[i][0] = SKSpriteNode(imageNamed: options[5])
                 matrix[matrix.count-i-1][0] = SKSpriteNode(imageNamed: options[5])
-            }
         }
         
         for i in 0 ..< matrix.count/2+1 {
@@ -288,7 +289,7 @@ class Level : NSObject, SKPhysicsContactDelegate {
             } else {
                 if matrix.count/2-i <= 1 {
                     matrix[i][1] = SKSpriteNode(imageNamed: options[5])
-                    matrix[matrix.count-i-1][1] = SKSpriteNode(imageNamed: options[5])
+                    matrix[matrix.count-i][1] = SKSpriteNode(imageNamed: options[5])
                 } else if matrix.count/2-i == 2 {
                     matrix[i][1] = SKSpriteNode(imageNamed: options[4])
                     matrix[matrix.count-i][1] = SKSpriteNode(imageNamed: options[4])
@@ -296,7 +297,41 @@ class Level : NSObject, SKPhysicsContactDelegate {
             }
         }
         
+        for i in 0 ..< matrix.count/2+1 {
+            if matrix.count/2-i <= 1 {
+                matrix[i][2] = SKSpriteNode(imageNamed: options[4])
+                matrix[matrix.count-i-1][2] = SKSpriteNode(imageNamed: options[4])
+            } else if matrix.count/2-i == 2 {
+                matrix[i][2] = SKSpriteNode(imageNamed: options[3])
+                matrix[matrix.count-i-1][2] = SKSpriteNode(imageNamed: options[3])
+            }
+        }
         
+        for j in 3 ..< 6 {
+            var d = 0
+            if j%2 == 0 {
+                d = 1
+            }
+            
+            var p = j-2
+            if j == 5 {
+                p = j-3
+            }
+            
+            let b1 = 3-(j-3)
+            let b2 = b1-1
+            
+            i = matrix.count/2-p
+            matrix[i][j] = SKSpriteNode(imageNamed: options[b1])
+            matrix[matrix.count-i-d][j] = SKSpriteNode(imageNamed: options[b1])
+            i = matrix.count/2-(p+1)
+            matrix[i][j] = SKSpriteNode(imageNamed: options[b2])
+            matrix[matrix.count-i-d][j] = SKSpriteNode(imageNamed: options[b2])
+        }
+        
+        i = matrix.count/2-3
+        matrix[i][6] = SKSpriteNode(imageNamed: options[0])
+        matrix[matrix.count-i-1][6] = SKSpriteNode(imageNamed: options[0])
     }
     
     private func startTimer() {
@@ -686,7 +721,6 @@ class Level : NSObject, SKPhysicsContactDelegate {
             self.scene.canShoot = false
             self.pillar.position.y = self.positions[0][self.startingIndex+1]!.y-self.bubbleSize/2
             for i in 0 ..< self.matrix.count {
-              //  for var j=self.matrix[i].count-1;j>=self.startingIndex;j-=1
                 for j in (self.startingIndex...self.matrix[i].count-1).reverse() {
                     if j-self.startingIndex < 2 {
                         if self.matrix[i][j] != nil {
@@ -739,7 +773,7 @@ class Level : NSObject, SKPhysicsContactDelegate {
                     scoresDB.update(self.levelNumber, s: self.scene.score)
                 })
                 
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_MSEC) * 1250), dispatch_get_main_queue(), {
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_MSEC) * 1000), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
                     self.showHighScore()
                 })
             }
@@ -761,7 +795,7 @@ class Level : NSObject, SKPhysicsContactDelegate {
     }
     
     private func showHighScore() {
-        scene.addChild(highScore)
+        highScore.hidden = false
         let growAction = SKAction.scaleBy(1.3, duration: 1)
         let doneAction = (SKAction.runBlock({
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC) * 2), dispatch_get_main_queue(), {
@@ -769,7 +803,7 @@ class Level : NSObject, SKPhysicsContactDelegate {
             })
         }))
         let sequence = (SKAction.sequence([growAction, doneAction]))
-        highScore.runAction(sequence)
+        self.highScore.runAction(sequence)
     }
     
     func removePanels() {

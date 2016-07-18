@@ -10,8 +10,8 @@ import UIKit
 
 class MenuViewController : UIViewController {
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        navigationItem.setHidesBackButton(true, animated: true)
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.setHidesBackButton(true, animated: false)
     }
 }

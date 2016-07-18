@@ -44,7 +44,7 @@ class GameScene: SKScene {
     let win = NSBundle.mainBundle().pathForResource("win", ofType: "wav")
     let lose = NSBundle.mainBundle().pathForResource("lose", ofType: "wav")
     
-    // Setup your scene here
+    // Scene setup
     override func didMoveToView(view: SKView) {
         let scoresDB = Scores.getInstance()
         scoresDB.checkDB()
@@ -69,10 +69,6 @@ class GameScene: SKScene {
     
     func cancelLevelThread() {
         level.endTimer()
-    }
-    
-    // Called when a touch begins
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -115,7 +111,7 @@ class GameScene: SKScene {
             }
         } else { // Win or Lose
             if didWin {
-                if level.winPanel.containsPoint(location) { // Nect level
+                if level.winPanel.containsPoint(location) { // Next level
                     if levelNum < GameScene.numOfLevels {
                         levelNum! += 1                        
                         level.removePanels()
