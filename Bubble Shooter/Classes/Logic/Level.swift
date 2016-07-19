@@ -80,7 +80,7 @@ class Level : NSObject, SKPhysicsContactDelegate {
         highScore = SKLabelNode(fontNamed: "Arial-BoldMT")
         highScore.text = "New high score!"
         highScore.fontColor = UIColor.redColor()
-        highScore.position = CGPoint(x: self.width/2, y: self.height/2-50)
+        highScore.position = CGPoint(x: self.width/2, y: pos.y - winPanel.size.height/2-25)
         highScore.fontSize = 20
         highScore.hidden = true
         scene.addChild(highScore)

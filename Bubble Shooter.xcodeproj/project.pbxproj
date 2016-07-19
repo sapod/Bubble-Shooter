@@ -163,7 +163,8 @@
 				C4195E9A1C984AD000BB344E /* LaunchScreen.storyboard */,
 				C4195E951C984AD000BB344E /* Main.storyboard */,
 			);
-			path = UI;
+			name = UI;
+			path = Base.lproj;
 			sourceTree = "<group>";
 		};
 		C44ED2A51D3E9920004E6397 /* Utilities */ = {
