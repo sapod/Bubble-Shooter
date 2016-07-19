@@ -68,11 +68,11 @@
 		C4169F271D303785001E292F /* Audio files */ = {
 			isa = PBXGroup;
 			children = (
-				C4169F2E1D303ED0001E292F /* lose.wav */,
-				C4169F2F1D303ED0001E292F /* win.wav */,
 				C4169F2A1D303C64001E292F /* falling.wav */,
-				C4169F2B1D303C64001E292F /* shoot.wav */,
 				C4169F281D3037D0001E292F /* hit.wav */,
+				C4169F2E1D303ED0001E292F /* lose.wav */,
+				C4169F2B1D303C64001E292F /* shoot.wav */,
+				C4169F2F1D303ED0001E292F /* win.wav */,
 			);
 			name = "Audio files";
 			path = ..;
@@ -97,25 +97,81 @@
 		C4195E8C1C984ACF00BB344E /* Bubble Shooter */ = {
 			isa = PBXGroup;
 			children = (
-				C4195E8D1C984AD000BB344E /* AppDelegate.swift */,
-				C4195E981C984AD000BB344E /* Assets.xcassets */,
-				C4169F271D303785001E292F /* Audio files */,
-				C4195E911C984AD000BB344E /* GameScene.swift */,
-				C4195E931C984AD000BB344E /* GameViewController.swift */,
-				C4195E9D1C984AD000BB344E /* Info.plist */,
-				C4195E9A1C984AD000BB344E /* LaunchScreen.storyboard */,
-				C4C2F5441CA33F1300644158 /* Level.swift */,
-				C4535B311CF441A600405CB3 /* LevelSelectionController.swift */,
-				C4195E951C984AD000BB344E /* Main.storyboard */,
-				C4067B891D2F01EE00240C87 /* Scores.swift */,
-				C4E78B2A1D2DB2E1009FF862 /* mDataModel.xcdatamodeld */,
-				C44427A91D3138FB00A2FE57 /* ScoresViewController.swift */,
-				C44427AB1D313A1E00A2FE57 /* ScoresTableViewCell.swift */,
-				C45A016E1D337FA1007C4A8D /* LaunchViewController.swift */,
-				C4B738981D3390EF00866EE7 /* PerrFuncs.swift */,
-				C4B7389A1D339BAF00866EE7 /* MenuViewController.swift */,
+				C44ED2A41D3E98E3004E6397 /* UI */,
+				C44ED2A11D3E9812004E6397 /* Classes */,
+				C44ED29F1D3E979D004E6397 /* Supporting files */,
 			);
 			path = "Bubble Shooter";
+			sourceTree = "<group>";
+		};
+		C44ED29F1D3E979D004E6397 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				C4195E981C984AD000BB344E /* Assets.xcassets */,
+				C4169F271D303785001E292F /* Audio files */,
+				C44ED2A01D3E97BE004E6397 /* Images */,
+				C4195E9D1C984AD000BB344E /* Info.plist */,
+				C4E78B2A1D2DB2E1009FF862 /* mDataModel.xcdatamodeld */,
+			);
+			name = "Supporting files";
+			sourceTree = "<group>";
+		};
+		C44ED2A01D3E97BE004E6397 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		C44ED2A11D3E9812004E6397 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C4195E8D1C984AD000BB344E /* AppDelegate.swift */,
+				C44ED2A31D3E9891004E6397 /* Logic */,
+				C44ED2A51D3E9920004E6397 /* Utilities */,
+				C44ED2A21D3E9864004E6397 /* ViewControllers */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		C44ED2A21D3E9864004E6397 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C4195E931C984AD000BB344E /* GameViewController.swift */,
+				C45A016E1D337FA1007C4A8D /* LaunchViewController.swift */,
+				C4535B311CF441A600405CB3 /* LevelSelectionController.swift */,
+				C4B7389A1D339BAF00866EE7 /* MenuViewController.swift */,
+				C44427A91D3138FB00A2FE57 /* ScoresViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C44ED2A31D3E9891004E6397 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				C4195E911C984AD000BB344E /* GameScene.swift */,
+				C4C2F5441CA33F1300644158 /* Level.swift */,
+			);
+			name = Logic;
+			sourceTree = "<group>";
+		};
+		C44ED2A41D3E98E3004E6397 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				C4195E9A1C984AD000BB344E /* LaunchScreen.storyboard */,
+				C4195E951C984AD000BB344E /* Main.storyboard */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		C44ED2A51D3E9920004E6397 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C4B738981D3390EF00866EE7 /* PerrFuncs.swift */,
+				C4067B891D2F01EE00240C87 /* Scores.swift */,
+				C44427AB1D313A1E00A2FE57 /* ScoresTableViewCell.swift */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

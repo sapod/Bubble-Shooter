@@ -806,15 +806,6 @@ class Level : NSObject, SKPhysicsContactDelegate {
         self.highScore.runAction(sequence)
     }
     
-    func removePanels() {
-        if scene.children.contains(winPanel) {
-            winPanel.removeFromParent()
-        }
-        if scene.children.contains(losePanel) {
-            losePanel.removeFromParent()
-        }
-    }
-    
     func reset() {
         for i in 0 ..< matrix.count {
             for j in 0 ..< matrix[i].count {
@@ -824,7 +815,7 @@ class Level : NSObject, SKPhysicsContactDelegate {
             }
         }
         
-        let arr = [pillar, leftWall, rightWall]
+        let arr = [pillar, leftWall, rightWall, winPanel, losePanel]
         scene.removeChildrenInArray(arr)
     }
 }

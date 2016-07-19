@@ -113,10 +113,7 @@ class GameScene: SKScene {
             if didWin {
                 if level.winPanel.containsPoint(location) { // Next level
                     if levelNum < GameScene.numOfLevels {
-                        levelNum! += 1                        
-                        level.removePanels()
-                        level.reset()
-                        level = Level(num: levelNum, scene: self)
+                        levelNum! += 1
                         resetGame()
                     }
                     else {
@@ -127,9 +124,6 @@ class GameScene: SKScene {
                 }
             } else {
                 if level.losePanel.containsPoint(location) { // Restart game
-                    level.removePanels()
-                    level.reset()
-                    level = Level(num: levelNum, scene: self)
                     resetGame()
 
                 }
@@ -232,6 +226,9 @@ class GameScene: SKScene {
     }
     
     private func resetGame() {
+        level.reset()
+        level = Level(num: levelNum, scene: self)
+        
         viewController.title = "Level \(levelNum)"
         gameActive = true
         setFireBalls()
