@@ -21,6 +21,7 @@
 		C4195E9C1C984AD000BB344E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4195E9A1C984AD000BB344E /* LaunchScreen.storyboard */; };
 		C44427AA1D3138FB00A2FE57 /* ScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44427A91D3138FB00A2FE57 /* ScoresViewController.swift */; };
 		C44427AC1D313A1E00A2FE57 /* ScoresTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44427AB1D313A1E00A2FE57 /* ScoresTableViewCell.swift */; };
+		C44ED2A71D3EA093004E6397 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C44ED2A61D3EA093004E6397 /* Default-568h@2x.png */; };
 		C4535B321CF441A600405CB3 /* LevelSelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4535B311CF441A600405CB3 /* LevelSelectionController.swift */; };
 		C45A016F1D337FA1007C4A8D /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45A016E1D337FA1007C4A8D /* LaunchViewController.swift */; };
 		C4B738991D3390EF00866EE7 /* PerrFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B738981D3390EF00866EE7 /* PerrFuncs.swift */; };
@@ -31,11 +32,11 @@
 
 /* Begin PBXFileReference section */
 		C4067B891D2F01EE00240C87 /* Scores.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scores.swift; sourceTree = "<group>"; };
-		C4169F281D3037D0001E292F /* hit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = hit.wav; path = "Audio files/hit.wav"; sourceTree = "<group>"; };
-		C4169F2A1D303C64001E292F /* falling.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = falling.wav; path = "Audio files/falling.wav"; sourceTree = "<group>"; };
-		C4169F2B1D303C64001E292F /* shoot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = shoot.wav; path = "Audio files/shoot.wav"; sourceTree = "<group>"; };
-		C4169F2E1D303ED0001E292F /* lose.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = lose.wav; path = "Audio files/lose.wav"; sourceTree = "<group>"; };
-		C4169F2F1D303ED0001E292F /* win.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = win.wav; path = "Audio files/win.wav"; sourceTree = "<group>"; };
+		C4169F281D3037D0001E292F /* hit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hit.wav; sourceTree = "<group>"; };
+		C4169F2A1D303C64001E292F /* falling.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = falling.wav; sourceTree = "<group>"; };
+		C4169F2B1D303C64001E292F /* shoot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shoot.wav; sourceTree = "<group>"; };
+		C4169F2E1D303ED0001E292F /* lose.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lose.wav; sourceTree = "<group>"; };
+		C4169F2F1D303ED0001E292F /* win.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = win.wav; sourceTree = "<group>"; };
 		C4195E8A1C984ACF00BB344E /* Bubble Shooter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bubble Shooter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4195E8D1C984AD000BB344E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4195E911C984AD000BB344E /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -46,6 +47,7 @@
 		C4195E9D1C984AD000BB344E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C44427A91D3138FB00A2FE57 /* ScoresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoresViewController.swift; sourceTree = "<group>"; };
 		C44427AB1D313A1E00A2FE57 /* ScoresTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoresTableViewCell.swift; sourceTree = "<group>"; };
+		C44ED2A61D3EA093004E6397 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C4535B311CF441A600405CB3 /* LevelSelectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelSelectionController.swift; sourceTree = "<group>"; };
 		C45A016E1D337FA1007C4A8D /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		C4B738981D3390EF00866EE7 /* PerrFuncs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerrFuncs.swift; sourceTree = "<group>"; };
@@ -74,13 +76,13 @@
 				C4169F2B1D303C64001E292F /* shoot.wav */,
 				C4169F2F1D303ED0001E292F /* win.wav */,
 			);
-			name = "Audio files";
-			path = ..;
+			path = "Audio files";
 			sourceTree = "<group>";
 		};
 		C4195E811C984ACF00BB344E = {
 			isa = PBXGroup;
 			children = (
+				C44ED2A61D3EA093004E6397 /* Default-568h@2x.png */,
 				C4195E8C1C984ACF00BB344E /* Bubble Shooter */,
 				C4195E8B1C984ACF00BB344E /* Products */,
 			);
@@ -113,14 +115,14 @@
 				C4195E9D1C984AD000BB344E /* Info.plist */,
 				C4E78B2A1D2DB2E1009FF862 /* mDataModel.xcdatamodeld */,
 			);
-			name = "Supporting files";
+			path = "Supporting files";
 			sourceTree = "<group>";
 		};
 		C44ED2A01D3E97BE004E6397 /* Images */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = Images;
+			path = Images;
 			sourceTree = "<group>";
 		};
 		C44ED2A11D3E9812004E6397 /* Classes */ = {
@@ -131,7 +133,7 @@
 				C44ED2A51D3E9920004E6397 /* Utilities */,
 				C44ED2A21D3E9864004E6397 /* ViewControllers */,
 			);
-			name = Classes;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		C44ED2A21D3E9864004E6397 /* ViewControllers */ = {
@@ -143,7 +145,7 @@
 				C4B7389A1D339BAF00866EE7 /* MenuViewController.swift */,
 				C44427A91D3138FB00A2FE57 /* ScoresViewController.swift */,
 			);
-			name = ViewControllers;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		C44ED2A31D3E9891004E6397 /* Logic */ = {
@@ -152,7 +154,7 @@
 				C4195E911C984AD000BB344E /* GameScene.swift */,
 				C4C2F5441CA33F1300644158 /* Level.swift */,
 			);
-			name = Logic;
+			path = Logic;
 			sourceTree = "<group>";
 		};
 		C44ED2A41D3E98E3004E6397 /* UI */ = {
@@ -161,7 +163,7 @@
 				C4195E9A1C984AD000BB344E /* LaunchScreen.storyboard */,
 				C4195E951C984AD000BB344E /* Main.storyboard */,
 			);
-			name = UI;
+			path = UI;
 			sourceTree = "<group>";
 		};
 		C44ED2A51D3E9920004E6397 /* Utilities */ = {
@@ -171,7 +173,7 @@
 				C4067B891D2F01EE00240C87 /* Scores.swift */,
 				C44427AB1D313A1E00A2FE57 /* ScoresTableViewCell.swift */,
 			);
-			name = Utilities;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +237,7 @@
 			files = (
 				C4169F291D3037D0001E292F /* hit.wav in Resources */,
 				C4169F311D303ED0001E292F /* win.wav in Resources */,
+				C44ED2A71D3EA093004E6397 /* Default-568h@2x.png in Resources */,
 				C4195E9C1C984AD000BB344E /* LaunchScreen.storyboard in Resources */,
 				C4169F2C1D303C64001E292F /* falling.wav in Resources */,
 				C4169F301D303ED0001E292F /* lose.wav in Resources */,
@@ -275,6 +278,7 @@
 				C4195E961C984AD000BB344E /* Base */,
 			);
 			name = Main.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		C4195E9A1C984AD000BB344E /* LaunchScreen.storyboard */ = {
@@ -283,6 +287,7 @@
 				C4195E9B1C984AD000BB344E /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -373,7 +378,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "Bubble Shooter/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Bubble Shooter/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Bubble-Shooter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -384,7 +389,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "Bubble Shooter/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Bubble Shooter/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Bubble-Shooter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
